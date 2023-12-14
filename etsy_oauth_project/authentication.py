@@ -1,9 +1,10 @@
+# authentication.py
 import os
-from requests_oauthlib import OAuth2Session
 from dotenv import load_dotenv
-import secrets
+from requests_oauthlib import OAuth2Session
 import base64
 import hashlib
+import secrets
 from typing import List, Optional, Tuple
 
 load_dotenv()
@@ -32,11 +33,6 @@ class AuthHelper:
         self.auth_code: Optional[str] = None
         self.token: Optional[str] = None
 
-    def generate_challenge(self) -> str:
-        m = hashlib.sha256(self.code_verifier.encode("utf-8"))
-        b64_encode = base64.urlsafe_b64encode(m.digest()).decode("utf-8")
-        return b64_encode.split("=")[0]
-
     def get_auth_code(self) -> Tuple[str, str]:
         authorisation_url, state = self.oauth.authorization_url(
             "https://www.etsy.com/oauth/connect",
@@ -50,7 +46,7 @@ class AuthHelper:
         if state == self.state:
             self.auth_code = code
         else:
-            raise ValueError("Invalid state")
+            raise
 
     def get_access_token(self) -> Optional[str]:
         headers = {
