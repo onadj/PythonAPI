@@ -6,7 +6,7 @@ etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 callback_url = "https://eoek1zxudta6gmi.m.pipedream.net"
 etsy_state = "Pmo6KlECJd5ErpZBVv-G3g"
 etsy_code_verifier = "vyAbiRa8RrPQavcz83ggPPuzRFkvyYjXR7oFKSwUSR0"
-etsy_auth_code_full = "7G_g3XaO3AmtqZ5fkUC591_xbYSIHtkjbQ-Mv0gbFOERXmfBc-hFa3KXS58rlHwim-xSv39rsSVHc4vW5o_ULBrg46Q2v5pQWnyO&state=Pmo6KlECJd5ErpZBVv-G3g"
+etsy_auth_code_full = "nUThXzrtDE8WwpwzV8nTTM88GF4kjl73iyJ_W28sCn2H089G5mygXB8ByfasrV97_YtGCwuAgE14aqr6d1WWfYxcUabMSa4FUIQm&state=Pmo6KlECJd5ErpZBVv-G3g"
 
 
 
@@ -22,7 +22,7 @@ else:
     print("ETSY_AUTH_CODE not found in environment variables.")
     # Handle the error appropriately
 
-etsy_scope = ["transactions_r"]
+etsy_scope = ["transactions_r","listings_r"]
 
 def get_access_token(keystring, auth_code, code_verifier, redirect_url, scopes):
     headers = {

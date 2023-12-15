@@ -1,7 +1,6 @@
 import os
 import requests
 import time 
-from requests_oauthlib import OAuth2Session
 
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 
@@ -28,25 +27,30 @@ def refresh_token(api_key, refresh_token):
     else:
         raise Exception("Token refresh failed")
 
-def get_shop_id(keystring, token):
+def get_receipts(api_key, token, shop_id):
     # Check if the access token is still valid
     if time.time() > token['expires_in']:
-        token['access_token'] = refresh_token(keystring, token['refresh_token'])
+        token['access_token'] = refresh_token(api_key, token['refresh_token'])
         token['expires_in'] = time.time() + 3600  # Set the new expiration time
 
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "x-api-key": keystring,
+        "x-api-key": api_key,
+        "Authorization": f"{token['token_type']} {token['access_token']}",
     }
 
-    # Create a new OAuth2Session instance
-    etsy_auth = OAuth2Session(keystring, token=token)
+    
+    params = {"receipt_ids": ",".join(map(str, range(1, 6)))}
 
-    # Send a GET request to retrieve shop information
-    r = etsy_auth.get("https://api.etsy.com/v3/application/shops?shop_name=BingusMerch", headers=headers)
+    # Endpoint with receipt_ids parameter
+    endpoint = f"https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts"
+    
+    r = requests.get(endpoint, headers=headers, params=params)
 
-    # Print the response text
-    print(r.text)
+    print("Status Code:", r.status_code)
+    print("Response Content:", r.text)
 
-get_shop_id(etsy_keystring, token)
+# Replace the following shop_id with an actual value
+shop_id = "34038896"
+get_receipts(etsy_keystring, token, shop_id)

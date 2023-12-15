@@ -5,10 +5,10 @@ etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 
 # Replace the following token dictionary with your actual Etsy OAuth token
 token = {
-    "access_token": "593486034.OOGSHG-8F7QdFL4Miis3JVGgsN_44A_p_a83XLFcmLGG9IWs5uI03x9s6OnoIz186ROYXNsEYV115D29ZZSrr5eCsQ",
+    "access_token": "593486034.9oiAhX7VGDumboT5MubEUuLOyROrNJGuV7N__3zHaKi9B2O4JmUcOwupprBHCxkrEs5XFwVtSCDJ7R4c7kh5lbB3hW",
     "token_type": "Bearer",
     "expires_in": 3600,
-    "refresh_token": "593486034.d3MBLhPlVVERapCc6ubtOxtg4sCX-xQKZ9aYmW-sy9Pke98KEWsEZSxinnQKJZOEoN4cIg0vFv1REUAZE_tq0THUtZ"
+    "refresh_token": "593486034.8Fiz744_ikZtZAQFKN2Nt3qSq1Yfn0TmhW4sEC7fb4WYyeKlOZ9z4RZ2kmZ9IGDKs1C1FkCgYQzAavFCEjzqWEsloX"
 }
 
 def get_listings_by_shop(keystring, token, shop_id, state=None):

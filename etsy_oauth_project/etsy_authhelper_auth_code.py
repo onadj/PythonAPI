@@ -3,7 +3,7 @@ from authentication import AuthHelper
 
 # Load environment variables
 etsy_keystring = os.getenv("ETSY_CLIENT_ID")
-etsy_scope = ["transactions_w", "transactions_r"]
+etsy_scope = ["transactions_r","listings_r"]
 callback_url = os.getenv("ETSY_REDIRECT_URI")
 etsy_state = os.getenv("ETSY_STATE")
 etsy_code_verifier = os.getenv("ETSY_CODE_VERIFIER")
