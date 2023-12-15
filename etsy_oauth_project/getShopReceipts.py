@@ -5,10 +5,10 @@ import time
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 
 token = {
-    "access_token": "593486034.OOGSHG-8F7QdFL4Miis3JVGgsN_44A_p_a83XLFcmLGG9IWs5uI03x9s6OnoIz186ROYXNsEYV115D29ZZSrr5eCsQ",
+    "access_token": "593486034.O8c9maNFSTeXc274Pe2GxeruBiZpel7hiLGDiK3GE961_p3OX_F6qPshZmSqrdaTw3szxuCtemnoGaYhxQyZABXpOd",
     "token_type": "Bearer",
     "expires_in": 3600,
-    "refresh_token": "593486034.d3MBLhPlVVERapCc6ubtOxtg4sCX-xQKZ9aYmW-sy9Pke98KEWsEZSxinnQKJZOEoN4cIg0vFv1REUAZE_tq0THUtZ"
+    "refresh_token": "593486034.rYHz7ZKyTy-gX8hMBNxpLlU8XwyUDRbrjErUzFcn6joPZM2tH596QiuisOhaeIcMB_b74dbHA99ScTFkNnJUiaYZ7K"
 }
 
 def refresh_token(api_key, refresh_token):
@@ -28,7 +28,7 @@ def refresh_token(api_key, refresh_token):
         raise Exception("Token refresh failed")
 
 def get_receipts(api_key, token, shop_id):
-    # Check if the access token is still valid
+    
     if time.time() > token['expires_in']:
         token['access_token'] = refresh_token(api_key, token['refresh_token'])
         token['expires_in'] = time.time() + 3600  # Set the new expiration time
