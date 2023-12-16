@@ -1,4 +1,6 @@
+# turbo.py
 import os
+import json
 from datetime import datetime
 
 def refresh_tokens():
@@ -16,10 +18,21 @@ def refresh_tokens():
 
 def run_get_shop_receipts(access_token, token_type, expires_in, refresh_token, shop_id):
     get_receipts_command = f"python getShopReceipts.py {access_token} {token_type} {expires_in} {refresh_token} {shop_id}"
-    os.system(get_receipts_command)
+    response = os.popen(get_receipts_command).read()
+
+    # Check if the response is a valid JSON
+    try:
+        json_response = json.loads(response)
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
+        print(f"Raw response: {response}")
+        return
+
+    # Save the response to a JSON file
+    with open("receipts_response.json", "w") as json_file:
+        json.dump(json_response, json_file, indent=4)
 
 def main():
-    
     shop_id = "34038896"
     new_access_token, new_token_type, new_expires_in, new_refresh_token = refresh_tokens()
 
