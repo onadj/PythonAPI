@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://8000-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'etsygenerator',
 ]
 
 MIDDLEWARE = [
