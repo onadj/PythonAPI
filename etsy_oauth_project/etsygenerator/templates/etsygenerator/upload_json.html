@@ -1,0 +1,13 @@
+<!-- etsygenerator/templates/etsygenerator/upload_json.html -->
+{% extends 'etsygenerator/base.html' %}
+
+{% block title %}Upload JSON{% endblock %}
+
+{% block content %}
+  <h1>Upload JSON File</h1>
+  <form method="post" action="{% url 'upload_json' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="json_file" accept=".json" required>
+    <button type="submit">Upload JSON</button>
+  </form>
+{% endblock %}

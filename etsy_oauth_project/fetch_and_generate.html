@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetching and Generating</title>
+</head>
+
+<body>
+    <h1>Fetching data from Etsy and generating template...</h1>
+
+    <script>
+        // Fetch and generate data when the page loads
+        window.onload = function () {
+            fetchAndGenerate();
+        };
+
+        function fetchAndGenerate() {
+            // Fetch data from Etsy
+            fetch('https://8080-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io/fetch_data')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data fetched from Etsy:', data);
+
+                    // Now you can use the fetched data to generate the template
+                    // You may want to modify the fetch_and_generate endpoint to accept data
+                    return fetch('https://8080-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io/fetch_and_generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error generating template');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Template generated:', data);
+                    // Redirect to the rendered_template.html page
+                    window.location.href = 'https://8080-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io/rendered_template.html';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>

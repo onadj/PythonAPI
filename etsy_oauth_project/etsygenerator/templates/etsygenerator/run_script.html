@@ -1,0 +1,44 @@
+<!-- etsygenerator/templates/etsygenerator/run_script.html -->
+
+{% extends 'etsygenerator/base.html' %}
+
+{% block title %}Run Etsy Script{% endblock %}
+
+{% block content %}
+    <h1>Run Etsy Script</h1>
+    <p>This page is for running the Etsy script and displaying the results.</p>
+
+    <form method="post" action="{% url 'run_etsy_script' %}">
+        {% csrf_token %}
+        <button type="submit">Run Script</button>
+    </form>
+
+    {% if script_execution_result %}
+        <div>
+            <h2>Script Execution Result</h2>
+
+            {% for result in script_execution_result.results %}
+                <div>
+                    <h3>Receipt ID: {{ result.receipt_id }}</h3>
+                    <p>Name: {{ result.name }}</p>
+                    <p>Address: {{ result.formatted_address }}</p>
+                    <p>Status: {{ result.status }}</p>
+                    <!-- Add more information as needed -->
+
+                    {% if result.transactions %}
+                        <h4>Transactions:</h4>
+                        <ul>
+                            {% for transaction in result.transactions %}
+                                <li>
+                                    Title: {{ transaction.title }}<br>
+                                    Price: {{ transaction.price.amount / 100 }} {{ transaction.price.currency_code }}
+                                </li>
+                                <!-- Add more transaction details as needed -->
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

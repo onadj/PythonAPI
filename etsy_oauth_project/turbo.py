@@ -1,4 +1,3 @@
-# turbo.py
 import os
 import json
 from datetime import datetime
@@ -28,9 +27,23 @@ def run_get_shop_receipts(access_token, token_type, expires_in, refresh_token, s
         print(f"Raw response: {response}")
         return
 
-    # Save the response to a JSON file
-    with open("receipts_response.json", "w") as json_file:
+    # Get the absolute path to the current script (turbo.py)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Specify the relative path within the etsygenerator app folder
+    relative_path = "receipts_response.json"
+
+    # Create the absolute path by joining script_dir and relative_path
+    file_path = os.path.join(script_dir, "etsygenerator", relative_path)
+
+    # Save the response to a JSON file within the etsygenerator app folder
+    with open(file_path, "w") as json_file:
         json.dump(json_response, json_file, indent=4)
+
+    # Redirect to the homepage after fetching data
+    print("Content-type: text/html")
+    print()
+    print("<html><head><meta http-equiv='refresh' content='0;url=index.html'></head><body></body></html>")
 
 def main():
     shop_id = "34038896"

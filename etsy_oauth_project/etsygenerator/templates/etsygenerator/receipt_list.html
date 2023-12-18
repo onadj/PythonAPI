@@ -1,0 +1,30 @@
+<!-- etsygenerator/receipt_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Receipt List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Receipt ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Created Timestamp</th>
+        <th scope="col">Updated Timestamp</th>
+        <th scope="col">Is Shipped</th>
+        <th scope="col">Is Paid</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for receipt in receipts %}
+        <tr>
+          <td>{{ receipt.receipt_id }}</td>
+          <td>{{ receipt.name }}</td>
+          <td>{{ receipt.formatted_created_timestamp }}</td>
+          <td>{{ receipt.formatted_updated_timestamp }}</td>
+          <td>{{ receipt.is_shipped }}</td>
+          <td>{{ receipt.is_paid }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

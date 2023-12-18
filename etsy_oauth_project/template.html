@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipts from Etsy</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Receipts from Etsy</h1>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Receipt ID</th>
+                    <th>Buyer Name</th>
+                    <th>Formatted Address</th>
+                    <th>City</th>
+                    <th>Country ISO</th>
+                    <th>Is Paid</th>
+                    <th>Grand Total</th>
+                    <th>Transaction Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for receipt in receipts %}
+                    <tr>
+                        <td>{{ receipt.receipt_id }}</td>
+                        <td>{{ receipt.name }}</td>
+                        <td>{{ receipt.formatted_address }}</td>
+                        <td>{{ receipt.city }}</td>
+                        <td>{{ receipt.country_iso }}</td>
+                        <td>{{ "Yes" if receipt.is_paid else "No" }}</td>
+                        <td>{{ receipt.grandtotal.amount / receipt.grandtotal.divisor }} {{ receipt.grandtotal.currency_code }}</td>
+                        <td>{{ receipt.transactions[0].title if receipt.transactions else "" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+
+</body>
+</html>

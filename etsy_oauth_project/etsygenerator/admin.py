@@ -1,6 +1,10 @@
-# etsygenerator/admin.py
+# admin.py
 from django.contrib import admin
-from .models import Receipt, Transaction
+from .models import RawJSON
 
-admin.site.register(Receipt)
-admin.site.register(Transaction)
+class RawJSONAdmin(admin.ModelAdmin):
+    list_display = ('id', 'data')
+    readonly_fields = ('id', 'data')
+    search_fields = ('id',)
+
+admin.site.register(RawJSON, RawJSONAdmin)

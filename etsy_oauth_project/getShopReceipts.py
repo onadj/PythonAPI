@@ -41,7 +41,7 @@ def get_receipts(api_key, token, shop_id):
         "Authorization": f"{token['token_type']} {token['access_token']}",
     }
 
-    params = {"receipt_ids": ",".join(map(str, range(1, 7)))}
+    params = {"receipt_ids": ",".join(map(str, range(1, 2)))}
 
     # Endpoint with receipt_ids parameter
     endpoint = f"https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts"
@@ -59,7 +59,7 @@ def get_receipts(api_key, token, shop_id):
         # Save the response to a JSON file with indentation for better readability
         with open("receipts_response.json", "w", encoding="utf-8") as json_file:
             json.dump(response_dict, json_file, indent=4, ensure_ascii=False)
-
+            print("Response saved to 'receipts_response.json'")
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
         print("Raw response:", response_content)

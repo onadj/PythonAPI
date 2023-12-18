@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipts from Etsy App</title>
+    <!-- Add Bootstrap CDN link for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+
+        #loadingMessage {
+            display: none;
+        }
+
+        #viewButton {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Etsy Receipts App</h1>
+    <br>
+<p>Explore and retrieve receipts from Etsy using our secure and efficient app. Powered by Etsy's Open API v3, our OAuth 2.0 Authorization Code Grants ensure app security and user approval for access. </p>
+
+<p>Start your journey with Etsy's unique OAuth implementation.</p>
+<br>
+
+<br>
+    
+    <!-- Add the new button and script -->
+    <button onclick="fetchAndGenerate()" class="btn btn-success">Fetch and Generate Receipts</button>
+    <br>
+    <br>
+
+    <!-- Loading message -->
+    <div id="loadingMessage">Fetching data, please wait...</div>
+
+    <!-- Update the href attribute to point to the correct path -->
+    <a href="/rendered_template.html" class="btn btn-primary" id="viewButton">View Receipts</a>
+
+    <!-- Add Bootstrap JS and Popper.js CDN links (if needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add the JavaScript functions -->
+    <script>
+        function showViewButton() {
+            // Hide loading message
+            document.getElementById('loadingMessage').style.display = 'none';
+    
+            // Show the "View Receipts" button
+            document.getElementById('viewButton').style.display = 'inline-block';
+        }
+    
+        function fetchAndGenerate() {
+            // Show loading message
+            document.getElementById('loadingMessage').style.display = 'block';
+    
+            // Fetch data from Etsy and generate the template
+            fetch('/fetch_and_generate')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Data fetched:', data);
+    
+                    // Call the function to show the button
+                    showViewButton();
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+    
+                    // Call the function to show the button even if there's an error
+                    showViewButton();
+                });
+        }
+    
+        // Call fetchAndGenerate() when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchAndGenerate();
+        });
+    </script>
+</body>
+</html>
