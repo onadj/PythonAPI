@@ -48,12 +48,26 @@
         .download-btn {
             margin-top: 10px;
             margin-right: 10px;
+            font-size: 14px; /* Adjust the font size */
+        }
+
+        /* Updated style for individual download buttons */
+        .individual-download-btn {
+            margin-top: 10px;
+            font-size: 12px; /* Adjust the font size */
+        }
+
+        /* Updated container styles for centering */
+        .custom-container {
+            margin: auto;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <!-- Updated container with custom-container class -->
+    <div class="container custom-container">
         <h1 class="mt-5 mb-4">Receipts from Etsy</h1>
         <table class="table table-bordered">
             <thead class="thead-light">
@@ -74,6 +88,7 @@
                     <th>Total Tax Cost</th>
                     <th>Total VAT Cost</th>
                     <th>Quantity</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -91,13 +106,19 @@ Croatia</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702029021</td>
+                    <td class="timestamp-cell">1702029021</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(0)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(0)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(0)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -115,13 +136,19 @@ Ireland</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702027670</td>
+                    <td class="timestamp-cell">1702027670</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(1)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(1)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(1)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -139,13 +166,19 @@ Ireland</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702027624</td>
+                    <td class="timestamp-cell">1702027624</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(2)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(2)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(2)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -163,13 +196,19 @@ Ireland</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702027573</td>
+                    <td class="timestamp-cell">1702027573</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(3)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(3)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(3)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -185,13 +224,19 @@ Croatia</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702026528</td>
+                    <td class="timestamp-cell">1702026528</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(4)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(4)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(4)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -207,13 +252,19 @@ Croatia</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1702025242</td>
+                    <td class="timestamp-cell">1702025242</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(5)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(5)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(5)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -229,13 +280,19 @@ Croatia</td>
                     <td>Yes</td>
                     <td>0.5 USD</td>
                     <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    <td>1701892439</td>
+                    <td class="timestamp-cell">1701892439</td>
                     <td>0.5 USD</td>
                     <td>0.5 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(6)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(6)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(6)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -251,20 +308,26 @@ United States</td>
                     <td>Yes</td>
                     <td>15.74 USD</td>
                     <td>Bingus T-shirt 100% Cotton!</td>
-                    <td>1643777787</td>
+                    <td class="timestamp-cell">1643777787</td>
                     <td>14.99 USD</td>
                     <td>14.99 USD</td>
                     <td>0.0 USD</td>
                     <td>0.75 USD</td>
                     <td>0.0 USD</td>
                     <td></td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON(7)" class="btn btn-primary individual-download-btn">Download JSON</button>
+                        <button onclick="downloadCSV(7)" class="btn btn-success individual-download-btn">Download CSV</button>
+                        <button onclick="downloadExcel(7)" class="btn btn-info individual-download-btn">Download Excel</button>
+                    </td>
                 </tr>
                 
             </tbody>
         </table>
-        <button onclick="downloadJSON()" class="btn btn-primary download-btn">Download JSON</button>
-        <button onclick="downloadCSV()" class="btn btn-success download-btn">Download CSV</button>
-        <button onclick="downloadExcel()" class="btn btn-info download-btn">Download Excel</button>
+        <button onclick="downloadAllJSON()" class="btn btn-primary download-btn">Download All JSON</button>
+        <button onclick="downloadAllCSV()" class="btn btn-success download-btn">Download All CSV</button>
+        <button onclick="downloadAllExcel()" class="btn btn-info download-btn">Download All Excel</button>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -292,7 +355,89 @@ United States</td>
             return data;
         }
 
-        function downloadJSON() {
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to format timestamp to human-readable form
+            function formatTimestamp(timestamp) {
+                // Assuming timestamp is in seconds, you may need to adjust this based on your actual data
+                var date = new Date(timestamp * 1000);
+                return date.toLocaleString(); // Adjust the format as needed
+            }
+
+            // Iterate through each table cell containing timestamp and update the content
+            var timestampCells = document.querySelectorAll('.timestamp-cell');
+            timestampCells.forEach(function (cell) {
+                var timestamp = parseFloat(cell.innerText);
+                cell.innerText = formatTimestamp(timestamp);
+            });
+        });
+
+        function downloadJSON(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+            var jsonString = JSON.stringify([jsonData[index]], null, 2);
+
+            var jsonBlob = new Blob([jsonString], { type: 'application/json' });
+
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(jsonBlob);
+            downloadLink.download = `receipt_${index + 1}_data.json`;
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadCSV(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            // Create an array to store the CSV lines
+            var csvLines = [];
+
+            // Add BOM and header line
+            var headerLine = Object.keys(jsonData[0]).map(value => `"${value}"`).join(',');
+            csvLines.push('\ufeff' + headerLine);
+
+            // Add data lines
+            var rowValues = Object.values(jsonData[index]).map(value => `"${value}"`);
+            csvLines.push(rowValues.join(','));
+
+            // Join lines with newline character
+            var csvContent = csvLines.join('\n');
+
+            // Create a Blob with the correct encoding
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+            // Create a download link
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `receipt_${index + 1}_data.csv`;
+
+            // Append the link to the body, trigger the click, and remove the link
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadExcel(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            var ws = XLSX.utils.json_to_sheet([jsonData[index]], { bookSST: true });
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
+
+            /* generate XLSX file */
+            var blob = XLSX.write(wb, { bookType: 'xlsx', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+            /* create a Blob from the XLSX file */
+            var blobFile = new Blob([blob], { type: 'application/octet-stream' });
+
+            /* save the Blob using FileSaver.js */
+            saveAs(blobFile, `receipt_${index + 1}_data.xlsx`);
+        }
+
+        function downloadAllJSON() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
             var jsonString = JSON.stringify(jsonData, null, 2);
@@ -301,14 +446,14 @@ United States</td>
 
             var downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(jsonBlob);
-            downloadLink.download = 'tableData.json';
+            downloadLink.download = 'all_receipts_data.json';
 
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
         }
 
-        function downloadCSV() {
+        function downloadAllCSV() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
 
@@ -334,7 +479,7 @@ United States</td>
             // Create a download link
             var downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'tableData.csv';
+            downloadLink.download = 'all_receipts_data.csv';
 
             // Append the link to the body, trigger the click, and remove the link
             document.body.appendChild(downloadLink);
@@ -342,8 +487,7 @@ United States</td>
             document.body.removeChild(downloadLink);
         }
 
-
-        function downloadExcel() {
+        function downloadAllExcel() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
 
@@ -358,7 +502,7 @@ United States</td>
             var blobFile = new Blob([blob], { type: 'application/octet-stream' });
 
             /* save the Blob using FileSaver.js */
-            saveAs(blobFile, 'tableData.xlsx');
+            saveAs(blobFile, 'all_receipts_data.xlsx');
         }
     </script>
 </body>

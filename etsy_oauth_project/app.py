@@ -14,10 +14,15 @@ def fetch_data_and_generate_template():
 
         rendered_template_data = json.loads(result.stdout)
 
+        # Log created_timestamp for debugging
+        for receipt in rendered_template_data.get('receipts', []):
+            print(f"Timestamp: {receipt.get('created_timestamp')}")
+
         return rendered_template_data
 
     except subprocess.CalledProcessError as e:
         return {'status': 'error', 'message': f'Error: {e}', 'error_output': e.stderr}
+
 
 @app.route('/')
 def index():

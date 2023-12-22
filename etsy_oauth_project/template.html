@@ -48,12 +48,26 @@
         .download-btn {
             margin-top: 10px;
             margin-right: 10px;
+            font-size: 14px; /* Adjust the font size */
+        }
+
+        /* Updated style for individual download buttons */
+        .individual-download-btn {
+            margin-top: 10px;
+            font-size: 12px; /* Adjust the font size */
+        }
+
+        /* Updated container styles for centering */
+        .custom-container {
+            margin: auto;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <!-- Updated container with custom-container class -->
+    <div class="container custom-container">
         <h1 class="mt-5 mb-4">Receipts from Etsy</h1>
         <table class="table table-bordered">
             <thead class="thead-light">
@@ -74,6 +88,7 @@
                     <th>Total Tax Cost</th>
                     <th>Total VAT Cost</th>
                     <th>Quantity</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,25 +104,36 @@
                     <td>{{ receipt.grandtotal.amount / receipt.grandtotal.divisor }} {{ receipt.grandtotal.currency_code
                         }}</td>
                     <td>{{ receipt.transactions[0].title if receipt.transactions else "" }}</td>
-                    <td>{{ receipt.created_timestamp }}</td>
+                    <td class="timestamp-cell">{{ receipt.created_timestamp }}</td>
                     <td>{{ receipt.subtotal.amount / receipt.subtotal.divisor }} {{ receipt.subtotal.currency_code
                         }}</td>
-                    <td>{{ receipt.total_price.amount / receipt.total_price.divisor }} {{ receipt.total_price.currency_code
+                    <td>{{ receipt.total_price.amount / receipt.total_price.divisor }} {{
+                        receipt.total_price.currency_code
                         }}</td>
                     <td>{{ receipt.total_shipping_cost.amount / receipt.total_shipping_cost.divisor }} {{
                         receipt.total_shipping_cost.currency_code }}</td>
-                    <td>{{ receipt.total_tax_cost.amount / receipt.total_tax_cost.divisor }} {{ receipt.total_tax_cost.currency_code
+                    <td>{{ receipt.total_tax_cost.amount / receipt.total_tax_cost.divisor }} {{
+                        receipt.total_tax_cost.currency_code
                         }}</td>
-                    <td>{{ receipt.total_vat_cost.amount / receipt.total_vat_cost.divisor }} {{ receipt.total_vat_cost.currency_code
+                    <td>{{ receipt.total_vat_cost.amount / receipt.total_vat_cost.divisor }} {{
+                        receipt.total_vat_cost.currency_code
                         }}</td>
                     <td>{{ receipt.quantity }}</td>
+                    <td>
+                        <!-- Individual download buttons -->
+                        <button onclick="downloadJSON({{ loop.index0 }})" class="btn btn-primary individual-download-btn">Download JSON</button>
+
+                        <button onclick="downloadCSV({{ loop.index0 }})" class="btn btn-success individual-download-btn">Download CSV</button>
+
+                       
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <button onclick="downloadJSON()" class="btn btn-primary download-btn">Download JSON</button>
-        <button onclick="downloadCSV()" class="btn btn-success download-btn">Download CSV</button>
-        <button onclick="downloadExcel()" class="btn btn-info download-btn">Download Excel</button>
+        <button onclick="downloadAllJSON()" class="btn btn-primary download-btn">Download All JSON</button>
+        <button onclick="downloadAllCSV()" class="btn btn-success download-btn">Download All CSV</button>
+       
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -135,7 +161,89 @@
             return data;
         }
 
-        function downloadJSON() {
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to format timestamp to human-readable form
+            function formatTimestamp(timestamp) {
+                // Assuming timestamp is in seconds, you may need to adjust this based on your actual data
+                var date = new Date(timestamp * 1000);
+                return date.toLocaleString(); // Adjust the format as needed
+            }
+
+            // Iterate through each table cell containing timestamp and update the content
+            var timestampCells = document.querySelectorAll('.timestamp-cell');
+            timestampCells.forEach(function (cell) {
+                var timestamp = parseFloat(cell.innerText);
+                cell.innerText = formatTimestamp(timestamp);
+            });
+        });
+
+        function downloadJSON(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+            var jsonString = JSON.stringify([jsonData[index]], null, 2);
+
+            var jsonBlob = new Blob([jsonString], { type: 'application/json' });
+
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(jsonBlob);
+            downloadLink.download = `receipt_${index + 1}_data.json`;
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadCSV(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            // Create an array to store the CSV lines
+            var csvLines = [];
+
+            // Add BOM and header line
+            var headerLine = Object.keys(jsonData[0]).map(value => `"${value}"`).join(',');
+            csvLines.push('\ufeff' + headerLine);
+
+            // Add data lines
+            var rowValues = Object.values(jsonData[index]).map(value => `"${value}"`);
+            csvLines.push(rowValues.join(','));
+
+            // Join lines with newline character
+            var csvContent = csvLines.join('\n');
+
+            // Create a Blob with the correct encoding
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+            // Create a download link
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `receipt_${index + 1}_data.csv`;
+
+            // Append the link to the body, trigger the click, and remove the link
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadExcel(index) {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            var ws = XLSX.utils.json_to_sheet([jsonData[index]], { bookSST: true });
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
+
+            /* generate XLSX file */
+            var blob = XLSX.write(wb, { bookType: 'xlsx', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+            /* create a Blob from the XLSX file */
+            var blobFile = new Blob([blob], { type: 'application/octet-stream' });
+
+            /* save the Blob using FileSaver.js */
+            saveAs(blobFile, `receipt_${index + 1}_data.xlsx`);
+        }
+
+        function downloadAllJSON() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
             var jsonString = JSON.stringify(jsonData, null, 2);
@@ -144,14 +252,14 @@
 
             var downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(jsonBlob);
-            downloadLink.download = 'tableData.json';
+            downloadLink.download = 'all_receipts_data.json';
 
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
         }
 
-        function downloadCSV() {
+        function downloadAllCSV() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
 
@@ -177,7 +285,7 @@
             // Create a download link
             var downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'tableData.csv';
+            downloadLink.download = 'all_receipts_data.csv';
 
             // Append the link to the body, trigger the click, and remove the link
             document.body.appendChild(downloadLink);
@@ -185,8 +293,7 @@
             document.body.removeChild(downloadLink);
         }
 
-
-        function downloadExcel() {
+        function downloadAllExcel() {
             var table = document.querySelector('.table');
             var jsonData = tableToJson(table);
 
@@ -201,7 +308,7 @@
             var blobFile = new Blob([blob], { type: 'application/octet-stream' });
 
             /* save the Blob using FileSaver.js */
-            saveAs(blobFile, 'tableData.xlsx');
+            saveAs(blobFile, 'all_receipts_data.xlsx');
         }
     </script>
 </body>
