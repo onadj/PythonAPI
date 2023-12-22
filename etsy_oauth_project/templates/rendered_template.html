@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,11 @@
     <title>Receipts from Etsy</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- FileSaver for saving files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- xlsx library for Excel export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx-style/0.14.3/xlsx.full.min.js"></script>
+
     <style>
         body {
             padding: 20px;
@@ -22,11 +28,14 @@
             margin-top: 20px;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             text-align: left;
         }
@@ -34,8 +43,15 @@
         th {
             background-color: #f2f2f2;
         }
+
+        /* Added style for the download buttons */
+        .download-btn {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1 class="mt-5 mb-4">Receipts from Etsy</h1>
@@ -54,132 +70,225 @@
             </thead>
             <tbody>
                 
-                    <tr>
-                        <td>3126892149</td>
-                        <td>Mislav Faletar</td>
-                        <td>Mislav Faletar
+                <tr>
+                    <td>3126892149</td>
+                    <td>Mislav Faletar</td>
+                    <td>Mislav Faletar
 PAVLENSKI PUT 5J
 10000 ZAGREB
 Croatia</td>
-                        <td>ZAGREB</td>
-                        <td>HR</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>ZAGREB</td>
+                    <td>HR</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3126876835</td>
-                        <td>Oliver Nad</td>
-                        <td>Oliver Nad
+                <tr>
+                    <td>3126876835</td>
+                    <td>Oliver Nad</td>
+                    <td>Oliver Nad
 Ludlow, 14 SLIABH ROS
 Bunclody
 ENNISCORTHY
 Co. Wexford Y21 K339
 Ireland</td>
-                        <td>Enniscorthy</td>
-                        <td>IE</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Enniscorthy</td>
+                    <td>IE</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3135290538</td>
-                        <td>Oliver Nad</td>
-                        <td>Oliver Nad
+                <tr>
+                    <td>3135290538</td>
+                    <td>Oliver Nad</td>
+                    <td>Oliver Nad
 Ludlow, 14 SLIABH ROS
 Bunclody
 ENNISCORTHY
 Co. Wexford Y21 K339
 Ireland</td>
-                        <td>Enniscorthy</td>
-                        <td>IE</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Enniscorthy</td>
+                    <td>IE</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3135290012</td>
-                        <td>Oliver Nad</td>
-                        <td>Oliver Nad
+                <tr>
+                    <td>3135290012</td>
+                    <td>Oliver Nad</td>
+                    <td>Oliver Nad
 Ludlow, 14 SLIABH ROS
 Bunclody
 ENNISCORTHY
 Co. Wexford Y21 K339
 Ireland</td>
-                        <td>Enniscorthy</td>
-                        <td>IE</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Enniscorthy</td>
+                    <td>IE</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3135278706</td>
-                        <td>Uma Đurović</td>
-                        <td>Uma Đurović
+                <tr>
+                    <td>3135278706</td>
+                    <td>Uma Đurović</td>
+                    <td>Uma Đurović
 Vijenac Ivana Česmičkog 4
 31000 OSIJEK
 Croatia</td>
-                        <td>Osijek</td>
-                        <td>HR</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Osijek</td>
+                    <td>HR</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3135265080</td>
-                        <td>Bruno Džambić Nađ</td>
-                        <td>Bruno Džambić Nađ
+                <tr>
+                    <td>3135265080</td>
+                    <td>Bruno Džambić Nađ</td>
+                    <td>Bruno Džambić Nađ
 Tvrđavica 199
 31000 OSIJEK
 Croatia</td>
-                        <td>Osijek</td>
-                        <td>HR</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Osijek</td>
+                    <td>HR</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>3123454017</td>
-                        <td>Bruno Džambić Nađ</td>
-                        <td>Bruno Džambić Nađ
+                <tr>
+                    <td>3123454017</td>
+                    <td>Bruno Džambić Nađ</td>
+                    <td>Bruno Džambić Nađ
 18 Vijenac Ivana Česmićkog
 31000 OSIJEK
 Croatia</td>
-                        <td>Osijek</td>
-                        <td>HR</td>
-                        <td>Yes</td>
-                        <td>0.5 USD</td>
-                        <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
-                    </tr>
+                    <td>Osijek</td>
+                    <td>HR</td>
+                    <td>Yes</td>
+                    <td>0.5 USD</td>
+                    <td>Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram</td>
+                </tr>
                 
-                    <tr>
-                        <td>2366151928</td>
-                        <td>Emma Cassidy</td>
-                        <td>Emma Cassidy
+                <tr>
+                    <td>2366151928</td>
+                    <td>Emma Cassidy</td>
+                    <td>Emma Cassidy
 11427 West Fremont Drive
 LITTLETON, CO 80127
 United States</td>
-                        <td>Littleton</td>
-                        <td>US</td>
-                        <td>Yes</td>
-                        <td>15.74 USD</td>
-                        <td>Bingus T-shirt 100% Cotton!</td>
-                    </tr>
+                    <td>Littleton</td>
+                    <td>US</td>
+                    <td>Yes</td>
+                    <td>15.74 USD</td>
+                    <td>Bingus T-shirt 100% Cotton!</td>
+                </tr>
                 
             </tbody>
         </table>
+        <button onclick="downloadJSON()" class="btn btn-primary download-btn">Download JSON</button>
+        <button onclick="downloadCSV()" class="btn btn-success download-btn">Download CSV</button>
+        <button onclick="downloadExcel()" class="btn btn-info download-btn">Download Excel</button>
     </div>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
 
+    <script>
+        function tableToJson(table) {
+            var data = [];
+
+            for (var i = 1; i < table.rows.length; i++) {
+                var tableRow = table.rows[i];
+                var rowData = {};
+
+                for (var j = 0; j < tableRow.cells.length; j++) {
+                    var cell = tableRow.cells[j];
+                    var headerText = table.rows[0].cells[j].innerText;
+                    rowData[headerText] = cell.innerText;
+                }
+
+                data.push(rowData);
+            }
+
+            return data;
+        }
+
+        function downloadJSON() {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+            var jsonString = JSON.stringify(jsonData, null, 2);
+
+            var jsonBlob = new Blob([jsonString], { type: 'application/json' });
+
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(jsonBlob);
+            downloadLink.download = 'tableData.json';
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadCSV() {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            // Create an array to store the CSV lines
+            var csvLines = [];
+
+            // Add BOM and header line
+            var headerLine = Object.keys(jsonData[0]).map(value => `"${value}"`).join(',');
+            csvLines.push('\ufeff' + headerLine);
+
+            // Add data lines
+            jsonData.forEach(function (row) {
+                var rowValues = Object.values(row).map(value => `"${value}"`);
+                csvLines.push(rowValues.join(','));
+            });
+
+            // Join lines with newline character
+            var csvContent = csvLines.join('\n');
+
+            // Create a Blob with the correct encoding
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+            // Create a download link
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = 'tableData.csv';
+
+            // Append the link to the body, trigger the click, and remove the link
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+
+        function downloadExcel() {
+            var table = document.querySelector('.table');
+            var jsonData = tableToJson(table);
+
+            var ws = XLSX.utils.json_to_sheet(jsonData, { bookSST: true });
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
+
+            /* generate XLSX file */
+            var blob = XLSX.write(wb, { bookType: 'xlsx', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+            /* create a Blob from the XLSX file */
+            var blobFile = new Blob([blob], { type: 'application/octet-stream' });
+
+            /* save the Blob using FileSaver.js */
+            saveAs(blobFile, 'tableData.xlsx');
+        }
+    </script>
 </body>
+
 </html>
