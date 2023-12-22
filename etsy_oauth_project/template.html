@@ -60,12 +60,20 @@
                 <tr>
                     <th>Receipt ID</th>
                     <th>Buyer Name</th>
+                    <th>Buyer Email</th>
                     <th>Formatted Address</th>
                     <th>City</th>
                     <th>Country ISO</th>
                     <th>Is Paid</th>
                     <th>Grand Total</th>
                     <th>Transaction Title</th>
+                    <th>Created Timestamp</th>
+                    <th>Subtotal</th>
+                    <th>Total Price</th>
+                    <th>Total Shipping Cost</th>
+                    <th>Total Tax Cost</th>
+                    <th>Total VAT Cost</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,6 +81,7 @@
                 <tr>
                     <td>{{ receipt.receipt_id }}</td>
                     <td>{{ receipt.name }}</td>
+                    <td>{{ receipt.buyer_email }}</td>
                     <td>{{ receipt.formatted_address }}</td>
                     <td>{{ receipt.city }}</td>
                     <td>{{ receipt.country_iso }}</td>
@@ -80,6 +89,18 @@
                     <td>{{ receipt.grandtotal.amount / receipt.grandtotal.divisor }} {{ receipt.grandtotal.currency_code
                         }}</td>
                     <td>{{ receipt.transactions[0].title if receipt.transactions else "" }}</td>
+                    <td>{{ receipt.created_timestamp }}</td>
+                    <td>{{ receipt.subtotal.amount / receipt.subtotal.divisor }} {{ receipt.subtotal.currency_code
+                        }}</td>
+                    <td>{{ receipt.total_price.amount / receipt.total_price.divisor }} {{ receipt.total_price.currency_code
+                        }}</td>
+                    <td>{{ receipt.total_shipping_cost.amount / receipt.total_shipping_cost.divisor }} {{
+                        receipt.total_shipping_cost.currency_code }}</td>
+                    <td>{{ receipt.total_tax_cost.amount / receipt.total_tax_cost.divisor }} {{ receipt.total_tax_cost.currency_code
+                        }}</td>
+                    <td>{{ receipt.total_vat_cost.amount / receipt.total_vat_cost.divisor }} {{ receipt.total_vat_cost.currency_code
+                        }}</td>
+                    <td>{{ receipt.quantity }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
