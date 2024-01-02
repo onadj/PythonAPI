@@ -377,7 +377,7 @@
             "city": "Enniscorthy",
             "state": "Co. Wexford",
             "zip": "Y21 K339",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Oliver Nad\nLudlow, 14 SLIABH ROS\nBunclody\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
             "country_iso": "IE",
             "payment_method": "cc",
@@ -385,12 +385,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": "",
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1702027573,
             "created_timestamp": 1702027573,
-            "update_timestamp": 1702027590,
-            "updated_timestamp": 1702027590,
+            "update_timestamp": 1704157119,
+            "updated_timestamp": 1704157119,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -433,7 +433,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230113707460,
+                    "shipment_notification_timestamp": 1704157119,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "6456456455555"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3874227134,
@@ -471,7 +478,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1708075588,
+                    "expected_ship_date": null,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }

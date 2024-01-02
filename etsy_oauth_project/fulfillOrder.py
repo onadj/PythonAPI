@@ -4,12 +4,32 @@ import time
 
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 
-token = {
-    "access_token": "593486034.Z2SqF8T0GePJAHLy4ZdC3dB7a7b9awSGUv6glySRYFHQDuTLq7PR0MeoOoHISF0-SEnTS3hwuQ9pQcHbtjhzaAaIe3",
-    "token_type": "Bearer",
-    "expires_in": 3600,
-    "refresh_token": "593486034.y70hqaPJkkLxxcnbsjcB2nupWUI4yxI2dA7kMmkPfqA_T-IkElNQn3YPw-4NJlN2dU1L5LGw8kVs9CVhPa_nGXLJJN"
-}
+def load_token_from_file():
+    with open("tokens.txt", "r") as file:
+        lines = file.readlines()
+
+    token = {}
+
+    for line in lines:
+        key, value = line.strip().split(": ")
+        # Map the loaded keys to the correct keys used in the script
+        key_mapping = {
+            'Access Token': 'access_token',
+            'Token Type': 'token_type',
+            'Expires In': 'expires_in',
+            'Refresh Token': 'refresh_token'
+        }
+        corrected_key = key_mapping.get(key, key)
+        if corrected_key == "expires_in":
+            value = float(value)  # Convert expires_in to float
+        token[corrected_key] = value
+
+    return token
+
+# Load token from file
+token = load_token_from_file()
+
+print("Loaded token:", token)
 
 def refresh_token(api_key, refresh_token):
     endpoint = "https://api.etsy.com/v3/public/oauth/token"
@@ -33,7 +53,12 @@ def refresh_token(api_key, refresh_token):
         raise Exception("Token refresh failed")
 
 def fulfill_order(api_key, token, shop_id, receipt_id, tracking_code, carrier_name):
-    if time.time() > token['expires_in']:
+    print("Token before checking expiration:", token)
+    if 'expires_in' not in token:
+        print("Warning: 'expires_in' not found in token.")
+        return
+
+    if time.time() > float(token['expires_in']):
         token['access_token'] = refresh_token(api_key, token['refresh_token'])
 
     headers = {
@@ -71,7 +96,7 @@ def fulfill_order(api_key, token, shop_id, receipt_id, tracking_code, carrier_na
 # Replace the following values with actual data
 shop_id = "34038896"
 receipt_id = "3135290012"
-tracking_code = "6456456455555"
+tracking_code = "34534534543534534"
 carrier_name = "hrvatska-posta"
 
 fulfill_order(etsy_keystring, token, shop_id, receipt_id, tracking_code, carrier_name)

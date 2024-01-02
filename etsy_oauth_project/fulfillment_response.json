@@ -23,8 +23,8 @@
     "is_paid": true,
     "create_timestamp": 1702027573,
     "created_timestamp": 1702027573,
-    "update_timestamp": 1704157119,
-    "updated_timestamp": 1704157119,
+    "update_timestamp": 1704158202,
+    "updated_timestamp": 1704158202,
     "is_gift": false,
     "gift_message": "",
     "grandtotal": {
@@ -68,6 +68,12 @@
         "currency_code": "USD"
     },
     "shipments": [
+        {
+            "receipt_shipping_id": 1230111464963,
+            "shipment_notification_timestamp": 1704158202,
+            "carrier_name": "Hrvatska Posta",
+            "tracking_code": "34534534543534534"
+        },
         {
             "receipt_shipping_id": 1230113707460,
             "shipment_notification_timestamp": 1704157119,
