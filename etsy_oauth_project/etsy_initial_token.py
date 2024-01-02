@@ -4,9 +4,9 @@ from requests_oauthlib import OAuth2Session
 # Assign values directly
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 callback_url = "https://eoek1zxudta6gmi.m.pipedream.net"
-etsy_state = "Pmo6KlECJd5ErpZBVv-G3g"
-etsy_code_verifier = "vyAbiRa8RrPQavcz83ggPPuzRFkvyYjXR7oFKSwUSR0"
-etsy_auth_code_full = "nUThXzrtDE8WwpwzV8nTTM88GF4kjl73iyJ_W28sCn2H089G5mygXB8ByfasrV97_YtGCwuAgE14aqr6d1WWfYxcUabMSa4FUIQm&state=Pmo6KlECJd5ErpZBVv-G3g"
+etsy_state = "rQsMKKb2pWnOQ-9kpja30g"
+etsy_code_verifier = "uCZhFnja4SXu03ly_EY2s6hz6ugLI1dLe4bOIc29VsWMa150bMplx242vE_lRY7c"
+etsy_auth_code_full = "kSEDDSL6sSvJismiEXvkxwqusnA0_vrHLgSdx7nOF4B7O8RCW5Hh6ECHb4kWUjIvlBsc3UgtcRYKEKbk8k8ft7QQK4qY_bPRywgs"
 
 
 
@@ -22,7 +22,7 @@ else:
     print("ETSY_AUTH_CODE not found in environment variables.")
     # Handle the error appropriately
 
-etsy_scope = ["transactions_r","listings_r"]
+etsy_scope = ["transactions_r","listings_r","transactions_w "]
 
 def get_access_token(keystring, auth_code, code_verifier, redirect_url, scopes):
     headers = {

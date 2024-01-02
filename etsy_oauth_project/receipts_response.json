@@ -14,7 +14,7 @@
             "city": "ZAGREB",
             "state": null,
             "zip": "10000",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Mislav Faletar\nPAVLENSKI PUT 5J\n10000 ZAGREB\nCroatia",
             "country_iso": "HR",
             "payment_method": "cc",
@@ -22,12 +22,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": "",
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1702029021,
             "created_timestamp": 1702029021,
-            "update_timestamp": 1702029041,
-            "updated_timestamp": 1702029041,
+            "update_timestamp": 1704140371,
+            "updated_timestamp": 1704140371,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -70,7 +70,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230047533633,
+                    "shipment_notification_timestamp": 1704140371,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "KB6NANRE9noji32oOU34h"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3874797587,
@@ -81,7 +88,7 @@
                     "create_timestamp": 1702029021,
                     "created_timestamp": 1702029021,
                     "paid_timestamp": 1702029039,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1704140371,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3126892149,
@@ -108,7 +115,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1708077039,
+                    "expected_ship_date": 1704140371,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -128,7 +135,7 @@
             "city": "Enniscorthy",
             "state": "Co. Wexford",
             "zip": "Y21 K339",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Oliver Nad\nLudlow, 14 SLIABH ROS\nBunclody\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
             "country_iso": "IE",
             "payment_method": "cc",
@@ -136,12 +143,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": "",
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1702027670,
             "created_timestamp": 1702027670,
-            "update_timestamp": 1702027709,
-            "updated_timestamp": 1702027709,
+            "update_timestamp": 1704140971,
+            "updated_timestamp": 1704140971,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -184,7 +191,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230055781692,
+                    "shipment_notification_timestamp": 1704140971,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "KB6NANRE9noji32oOU34h"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3874778531,
@@ -195,7 +209,7 @@
                     "create_timestamp": 1702027670,
                     "created_timestamp": 1702027670,
                     "paid_timestamp": 1702027708,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1704140971,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3126876835,
@@ -222,7 +236,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1708075708,
+                    "expected_ship_date": 1704140971,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -242,7 +256,7 @@
             "city": "Enniscorthy",
             "state": "Co. Wexford",
             "zip": "Y21 K339",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Oliver Nad\nLudlow, 14 SLIABH ROS\nBunclody\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
             "country_iso": "IE",
             "payment_method": "cc",
@@ -250,12 +264,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": "",
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1702027624,
             "created_timestamp": 1702027624,
-            "update_timestamp": 1702027639,
-            "updated_timestamp": 1702027639,
+            "update_timestamp": 1704155636,
+            "updated_timestamp": 1704155636,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -298,7 +312,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230108537330,
+                    "shipment_notification_timestamp": 1704155635,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "4358979349583"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3874227914,
@@ -309,7 +330,7 @@
                     "create_timestamp": 1702027624,
                     "created_timestamp": 1702027624,
                     "paid_timestamp": 1702027638,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1704155636,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3135290538,
@@ -336,7 +357,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1708075638,
+                    "expected_ship_date": 1704155636,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -470,7 +491,7 @@
             "city": "Osijek",
             "state": null,
             "zip": "31000",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Uma Đurović\nVijenac Ivana Česmičkog 4\n31000 OSIJEK\nCroatia",
             "country_iso": "HR",
             "payment_method": "cc",
@@ -478,12 +499,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": null,
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1702026528,
             "created_timestamp": 1702026528,
-            "update_timestamp": 1702026546,
-            "updated_timestamp": 1702026546,
+            "update_timestamp": 1704155964,
+            "updated_timestamp": 1704155964,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -526,7 +547,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230109575980,
+                    "shipment_notification_timestamp": 1704155964,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "1564654654654"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3874763035,
@@ -537,7 +565,7 @@
                     "create_timestamp": 1702026528,
                     "created_timestamp": 1702026528,
                     "paid_timestamp": 1702026545,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1704155964,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3135278706,
@@ -564,7 +592,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1708074545,
+                    "expected_ship_date": 1704155964,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -698,7 +726,7 @@
             "city": "Osijek",
             "state": null,
             "zip": "31000",
-            "status": "Paid",
+            "status": "Completed",
             "formatted_address": "Bruno Džambić Nađ\n18 Vijenac Ivana Česmićkog\n31000 OSIJEK\nCroatia",
             "country_iso": "HR",
             "payment_method": "cc",
@@ -706,12 +734,12 @@
             "message_from_payment": null,
             "message_from_seller": null,
             "message_from_buyer": "",
-            "is_shipped": false,
+            "is_shipped": true,
             "is_paid": true,
             "create_timestamp": 1701892439,
             "created_timestamp": 1701892439,
-            "update_timestamp": 1701892456,
-            "updated_timestamp": 1701892456,
+            "update_timestamp": 1704156473,
+            "updated_timestamp": 1704156473,
             "is_gift": false,
             "gift_message": "",
             "grandtotal": {
@@ -754,7 +782,14 @@
                 "divisor": 100,
                 "currency_code": "USD"
             },
-            "shipments": [],
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1230111353036,
+                    "shipment_notification_timestamp": 1704156473,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "654645645645645645645"
+                }
+            ],
             "transactions": [
                 {
                     "transaction_id": 3870050098,
@@ -765,7 +800,7 @@
                     "create_timestamp": 1701892439,
                     "created_timestamp": 1701892439,
                     "paid_timestamp": 1701892455,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1704156473,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3123454017,
@@ -792,7 +827,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1707940455,
+                    "expected_ship_date": 1704156473,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }

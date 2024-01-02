@@ -1,0 +1,121 @@
+{
+    "receipt_id": 3135290012,
+    "receipt_type": 0,
+    "seller_user_id": 593486034,
+    "seller_email": "bruno.nagyy@gmail.com",
+    "buyer_user_id": 873229899,
+    "buyer_email": "oliver.nad@gmail.com",
+    "name": "Oliver Nad",
+    "first_line": "Ludlow, 14 SLIABH ROS",
+    "second_line": "Bunclody",
+    "city": "Enniscorthy",
+    "state": "Co. Wexford",
+    "zip": "Y21 K339",
+    "status": "Completed",
+    "formatted_address": "Oliver Nad\nLudlow, 14 SLIABH ROS\nBunclody\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
+    "country_iso": "IE",
+    "payment_method": "cc",
+    "payment_email": "",
+    "message_from_payment": null,
+    "message_from_seller": null,
+    "message_from_buyer": "",
+    "is_shipped": true,
+    "is_paid": true,
+    "create_timestamp": 1702027573,
+    "created_timestamp": 1702027573,
+    "update_timestamp": 1704157119,
+    "updated_timestamp": 1704157119,
+    "is_gift": false,
+    "gift_message": "",
+    "grandtotal": {
+        "amount": 50,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "subtotal": {
+        "amount": 50,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "total_price": {
+        "amount": 50,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "total_shipping_cost": {
+        "amount": 0,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "total_tax_cost": {
+        "amount": 0,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "total_vat_cost": {
+        "amount": 0,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "discount_amt": {
+        "amount": 0,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "gift_wrap_price": {
+        "amount": 0,
+        "divisor": 100,
+        "currency_code": "USD"
+    },
+    "shipments": [
+        {
+            "receipt_shipping_id": 1230113707460,
+            "shipment_notification_timestamp": 1704157119,
+            "carrier_name": "Hrvatska Posta",
+            "tracking_code": "6456456455555"
+        }
+    ],
+    "transactions": [
+        {
+            "transaction_id": 3874227134,
+            "title": "Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram",
+            "description": "Listing for API testing purposes",
+            "seller_user_id": 593486034,
+            "buyer_user_id": 873229899,
+            "create_timestamp": 1702027573,
+            "created_timestamp": 1702027573,
+            "paid_timestamp": 1702027588,
+            "shipped_timestamp": 1704157119,
+            "quantity": 1,
+            "listing_image_id": 5621755613,
+            "receipt_id": 3135290012,
+            "is_digital": false,
+            "file_data": "",
+            "listing_id": 1628560583,
+            "sku": "",
+            "product_id": 19089550991,
+            "transaction_type": "listing",
+            "price": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "shipping_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "variations": [],
+            "product_data": null,
+            "shipping_profile_id": 167053242486,
+            "min_processing_days": 5,
+            "max_processing_days": 50,
+            "shipping_method": null,
+            "shipping_upgrade": null,
+            "expected_ship_date": 1704157119,
+            "buyer_coupon": 0,
+            "shop_coupon": 0
+        }
+    ],
+    "refunds": []
+}
