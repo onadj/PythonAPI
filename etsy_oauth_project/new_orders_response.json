@@ -1,0 +1,233 @@
+{
+    "count": 2,
+    "results": [
+        {
+            "receipt_id": 3184957244,
+            "receipt_type": 0,
+            "seller_user_id": 593486034,
+            "seller_email": "bruno.nagyy@gmail.com",
+            "buyer_user_id": 890285992,
+            "buyer_email": "oliver.nad@gmail.com",
+            "name": "Pohano sa Francuskom",
+            "first_line": "Tvrdja 0 - 24 , 14 SLIABH ROS",
+            "second_line": "Caginec",
+            "city": "Enniscorthy",
+            "state": "Co. Wexford",
+            "zip": "Y21 K339",
+            "status": "Paid",
+            "formatted_address": "Pohano sa Francuskom\nTvrdja 0 - 24 , 14 SLIABH ROS\nCaginec\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
+            "country_iso": "IE",
+            "payment_method": "cc",
+            "payment_email": "",
+            "message_from_payment": null,
+            "message_from_seller": null,
+            "message_from_buyer": null,
+            "is_shipped": false,
+            "is_paid": true,
+            "create_timestamp": 1705579981,
+            "created_timestamp": 1705579981,
+            "update_timestamp": 1705579997,
+            "updated_timestamp": 1705579997,
+            "is_gift": false,
+            "gift_message": "",
+            "grandtotal": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "subtotal": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_price": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_shipping_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_tax_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_vat_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "discount_amt": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "gift_wrap_price": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "shipments": [],
+            "transactions": [
+                {
+                    "transaction_id": 3938193371,
+                    "title": "Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram",
+                    "description": "Listing for API testing purposes",
+                    "seller_user_id": 593486034,
+                    "buyer_user_id": 890285992,
+                    "create_timestamp": 1705579981,
+                    "created_timestamp": 1705579981,
+                    "paid_timestamp": 1705579996,
+                    "shipped_timestamp": null,
+                    "quantity": 1,
+                    "listing_image_id": 5621755613,
+                    "receipt_id": 3184957244,
+                    "is_digital": false,
+                    "file_data": "",
+                    "listing_id": 1628560583,
+                    "sku": "",
+                    "product_id": 19089550991,
+                    "transaction_type": "listing",
+                    "price": {
+                        "amount": 50,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "shipping_cost": {
+                        "amount": 0,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "variations": [],
+                    "product_data": [],
+                    "shipping_profile_id": 167053242486,
+                    "min_processing_days": 5,
+                    "max_processing_days": 50,
+                    "shipping_method": null,
+                    "shipping_upgrade": null,
+                    "expected_ship_date": 1711624396,
+                    "buyer_coupon": 0,
+                    "shop_coupon": 0
+                }
+            ],
+            "refunds": []
+        },
+        {
+            "receipt_id": 3184954582,
+            "receipt_type": 0,
+            "seller_user_id": 593486034,
+            "seller_email": "bruno.nagyy@gmail.com",
+            "buyer_user_id": 890330253,
+            "buyer_email": "oliver.nad@gmail.com",
+            "name": "Isus Novorodjeni",
+            "first_line": "Betlehem, 14 SLIABH ROS",
+            "second_line": "Bunclody",
+            "city": "Enniscorthy",
+            "state": "Co. Wexford",
+            "zip": "Y21 K339",
+            "status": "Paid",
+            "formatted_address": "Isus Novorodjeni\nBetlehem, 14 SLIABH ROS\nBunclody\nENNISCORTHY\nCo. Wexford Y21 K339\nIreland",
+            "country_iso": "IE",
+            "payment_method": "cc",
+            "payment_email": "",
+            "message_from_payment": null,
+            "message_from_seller": null,
+            "message_from_buyer": null,
+            "is_shipped": false,
+            "is_paid": true,
+            "create_timestamp": 1705579604,
+            "created_timestamp": 1705579604,
+            "update_timestamp": 1705579611,
+            "updated_timestamp": 1705579611,
+            "is_gift": false,
+            "gift_message": "",
+            "grandtotal": {
+                "amount": 100,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "subtotal": {
+                "amount": 100,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_price": {
+                "amount": 100,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_shipping_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_tax_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_vat_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "discount_amt": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "gift_wrap_price": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "shipments": [],
+            "transactions": [
+                {
+                    "transaction_id": 3937651598,
+                    "title": "Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram",
+                    "description": "Listing for API testing purposes",
+                    "seller_user_id": 593486034,
+                    "buyer_user_id": 890330253,
+                    "create_timestamp": 1705579604,
+                    "created_timestamp": 1705579604,
+                    "paid_timestamp": 1705579609,
+                    "shipped_timestamp": null,
+                    "quantity": 2,
+                    "listing_image_id": 5621755613,
+                    "receipt_id": 3184954582,
+                    "is_digital": false,
+                    "file_data": "",
+                    "listing_id": 1628560583,
+                    "sku": "",
+                    "product_id": 19089550991,
+                    "transaction_type": "listing",
+                    "price": {
+                        "amount": 50,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "shipping_cost": {
+                        "amount": 0,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "variations": [],
+                    "product_data": [],
+                    "shipping_profile_id": 167053242486,
+                    "min_processing_days": 5,
+                    "max_processing_days": 50,
+                    "shipping_method": null,
+                    "shipping_upgrade": null,
+                    "expected_ship_date": 1711624009,
+                    "buyer_coupon": 0,
+                    "shop_coupon": 0
+                }
+            ],
+            "refunds": []
+        }
+    ]
+}

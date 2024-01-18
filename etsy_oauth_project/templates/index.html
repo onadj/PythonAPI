@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipts from Etsy App</title>
-    <!-- Add Bootstrap CDN link for styling -->
+    <title>Your Etsy Orders</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Add your custom styles here */
         body {
-            text-align: center;
-            padding: 50px;
+            background-color: #f8f9fa;
         }
 
-        #loadingMessage {
-            display: none;
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
-        #viewButton {
-            display: none;
+        .mt-4 {
+            color: #007bff;
+        }
+
+        .list-group-item {
+            background-color: #f8f9fa;
+        }
+
+        .btn-primary,
+        .btn-info,
+        .btn-success {
+            margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
-    <h1>Welcome to the Etsy Receipts App</h1>
-    <br>
-<p>Explore and retrieve receipts from Etsy using our secure and efficient app. Powered by Etsy's Open API v3, our OAuth 2.0 Authorization Code Grants ensure app security and user approval for access. </p>
+    <div class="container mt-5">
+        <h1 class="mt-4">Your Etsy Orders</h1>
 
-<p>Start your journey with Etsy's unique OAuth implementation.</p>
-<br>
+        <h2>Token Information</h2>
+        <ul class="list-group mb-4">
+            {% for key, value in token_info.items() %}
+                <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
 
-<br>
-    
-    <!-- Add the new button and script -->
-    <button onclick="fetchAndGenerate()" class="btn btn-success">Fetch and Generate Receipts</button>
-    <br>
-    <br>
+        <div id="existing-orders">
+            <h2>Existing Orders</h2>
+            <!-- Add logic to display existing orders here -->
+            <a href="{{ url_for('download_existing_orders_json') }}" class="btn btn-info">Download All Orders JSON</a>
+        </div>
 
-    <!-- Loading message -->
-    <div id="loadingMessage">Fetching data, please wait...</div>
-
-    <!-- Update the href attribute to point to the correct path -->
-    <a href="/rendered_template.html" class="btn btn-primary" id="viewButton">View Receipts</a>
-
-    <!-- Add Bootstrap JS and Popper.js CDN links (if needed) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Add the JavaScript functions -->
-    <script>
-        function showViewButton() {
-            // Hide loading message
-            document.getElementById('loadingMessage').style.display = 'none';
-    
-            // Show the "View Receipts" button
-            document.getElementById('viewButton').style.display = 'inline-block';
-        }
-    
-        function fetchAndGenerate() {
-            // Show loading message
-            document.getElementById('loadingMessage').style.display = 'block';
-    
-            // Fetch data from Etsy and generate the template
-            fetch('/fetch_and_generate')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Data fetched:', data);
-    
-                    // Call the function to show the button
-                    showViewButton();
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-    
-                    // Call the function to show the button even if there's an error
-                    showViewButton();
-                });
-        }
-    
-        // Call fetchAndGenerate() when the page loads
-        document.addEventListener("DOMContentLoaded", function() {
-            fetchAndGenerate();
-        });
-    </script>
+        <div id="new-orders">
+            <h2>New Orders</h2>
+            <!-- Add logic to display new orders here -->
+            {% if new_orders %}
+                <ul class="list-group mb-4">
+                    {% for order in new_orders %}
+                        <li class="list-group-item">
+                            <strong>Order ID:</strong> {{ order.order_id }}<br>
+                            <strong>Item Name:</strong> {{ order.item_name }}<br>
+                            <strong>Quantity:</strong> {{ order.quantity }}<br>
+                            <strong>Price:</strong> ${{ (order.price / 100)|round(2) }}<br>
+                            <strong>Created Timestamp:</strong> {{ order.create_timestamp }}<br>
+                            <strong>Address:</strong> {{ order.address }}<br>
+                            <strong>Grandtotal:</strong> ${{ (order.grandtotal.amount / 100)|round(2) }} ({{ order.grandtotal.currency_code }})
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% if new_orders_available %}
+                    <h2>Download Options</h2>
+                    <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders JSON</a>
+                    
+                {% endif %}
+            {% else %}
+                <p>No new orders available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-oXYWDVjO8qkuW5uAd72Gz1lLuETyQQ8o8W5QcUAPaIAYWhjs2BTE6pjB/6VcNQE+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-iQFbO8b0ie1Anix3I8a9Z1FX7cUzHdxB8AuKpxR2dHcgGFXmTwA6bIUpw2gMyV3W"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy/mTcDSc5/LAVbq8LE/1AlmCK+JXel7UJZ"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -95,8 +95,8 @@ def fulfill_order(api_key, token, shop_id, receipt_id, tracking_code, carrier_na
 
 # Replace the following values with actual data
 shop_id = "34038896"
-receipt_id = "3135290012"
-tracking_code = "34534534543534534"
+receipt_id = "3168059268"
+tracking_code = "45645865444333"
 carrier_name = "hrvatska-posta"
 
 fulfill_order(etsy_keystring, token, shop_id, receipt_id, tracking_code, carrier_name)

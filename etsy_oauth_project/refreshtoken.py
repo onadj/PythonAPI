@@ -1,5 +1,6 @@
 import os
 import requests
+import json
 
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 refresh_token = "593486034.36Q_W-2uizNGqIoXYdlgYib6_koabXjOuSHKO5EqB0YwXKdOVps1tcoG5D-qReyYK2Yfg6ZdC7S9mcFAcuJEQb4ARD"
@@ -30,12 +31,9 @@ if new_token_response:
     print("Expires In:", new_token_response['expires_in'])
     print("New Refresh Token:", new_token_response['refresh_token'])
 
-    # Save tokens to a text file
+    # Save tokens to a text file in JSON format
     with open("tokens.txt", "w") as file:
-        file.write(f"Access Token: {new_token_response['access_token']}\n")
-        file.write(f"Token Type: {new_token_response['token_type']}\n")
-        file.write(f"Expires In: {new_token_response['expires_in']}\n")
-        file.write(f"Refresh Token: {new_token_response['refresh_token']}\n")
+        json.dump(new_token_response, file)  # Save the entire response as JSON
 
     print("Tokens saved to tokens.txt.")
 else:

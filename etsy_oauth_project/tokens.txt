@@ -1,4 +1,1 @@
-Access Token: 593486034.t3Db5TqTK1RzNyOuSBeh-9o-OktjIQqC2F3i9t93m3WOPa5NQF29ugj0JXn_cDhGyWvCzVEzqNhJP3icvA6OkDprxz
-Token Type: Bearer
-Expires In: 3600
-Refresh Token: 593486034.I3sRYFKcU6AFQvNJf_KXRaD_KSS9oC9webiQk82zMKSME4hHhSfitx4oDtrp4qJ5Ry-fOGRsjXKcLXs39oZ5jyKJJb
+{"access_token": "593486034.Z5SSPZwcehSPKAjHqfSj8hGymF9L1zV9KkndSlhDXblIk4lihLPdNIR-Cibr1B8HT-knBVmD_VVZ_R6HTzQyX0n0Ye", "token_type": "Bearer", "expires_in": 3600, "refresh_token": "593486034.uHXAl8he3mru3jHj47K8-Wog9_4yixUlyrxtQWwtY1wF1A9O0sXycMkQeUCI2DC0lri3aKSBzjeZjPhGmEuQlu98I_"}
