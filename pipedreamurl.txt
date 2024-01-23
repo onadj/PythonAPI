@@ -1,0 +1,167 @@
+https://eotxq510oqf256s.m.pipedream.net
+
+code KuctbOFADmSaEttmYRcH6c_8Oe6RxCggf-KQfOaFKcH6zq8aMU7SYb8Jh-fb9d_SvJj3pCBvEyp6rs03Iy6QufOE_LZ-Tud5iiWH
+
+o7Iqj-pqkFvCVxAaUj7zCW_RsvjD0LtNBghPs6m_wnulemcczHEd--clHuNy-bPHiZSug4S41YXDXuwfbEtmAhtjJxO1x890StIf&state=32OExZP4lHakH57uo0ryMy0yhSjRtN
+
+
+https://eotxq510oqf256s.m.pipedream.net/?code=rhQQ82lmvKFs7PyMl9i-eJkJj5McV0xuP_T5jPqu_IMPuRPTB9neDl9gg7U6uX1vK6vBEKTLB-0YecZsFpyekRApA-Q9JmKxh6ft&state=32OExZP4lHakH57uo0ryMy0yhSjRtN
+
+
+https://eokvmbi494rupln.m.pipedream.net
+
+https://eokvmbi494rupln.m.pipedream.net/?code=Zu-EAmF4MYtZiQSy8Y5SOlmcL1Ti932KrAuRdEVeehbtvQonZfll77iI3-WCpDvhZiZuEiBsXq3CaoH993x9-BCEeWfjJJjcmQ_y&state=32OExZP4lHakH57uo0ryMy0yhSjRtN
+
+
+code
+Zu-EAmF4MYtZiQSy8Y5SOlmcL1Ti932KrAuRdEVeehbtvQonZfll77iI3-WCpDvhZiZuEiBsXq3CaoH993x9-BCEeWfjJJjcmQ_y
+
+state
+32OExZP4lHakH57uo0ryMy0yhSjRtN
+
+gitpod /workspace/PythonAPI/etsy_oauth_project (main) $ python etsy_initial_token.py
+Generated code_verifier: 2Ck41mQjpBNRWLbLOJr2roFznez-H_tjFrHOy-ByL0jqIpOZFQg1P1-mmnRV8tOZ
+('https://www.etsy.com/oauth/connect?response_type=code&client_id=None&scope=transactions_w+transactions_r&state=CsiNUgEw7JSC1SuQiEYiBsm233zZ5T&code_challenge=Feo7iwDNv_iiulG4A9XJuQ7uvmrcB4ip1XRMteBzSvk&code_challenge_method=S256', 'CsiNUgEw7JSC1SuQiEYiBsm233zZ5T')
+
+---------------------------- 14/12 
+
+1 used for first step
+
+https://eoolwk2n9vqvod6.m.pipedream.net
+
+etsy side:
+bruno.nagyy@gmail.com
+   bruno.nagyy@etsy_development_account
+
+python etsy_authhelper_auth_code.py
+
+
+('https://www.etsy.com/oauth/connect?response_type=code&client_id=0ljrt44eg7klh1c5t4rmfrph&redirect_uri=https%3A%2F%2Feoolwk2n9vqvod6.m.pipedream.net&scope=transactions_w+transactions_r&state=Pmo6KlECJd5ErpZBVv-G3g&code_challenge=0HUAYAnanGJiesYKSWp9mgd4ibnxR4kI47dBT5E5gKc&code_challenge_method=S256', 'Pmo6KlECJd5ErpZBVv-G3g')
+
+
+https://eoolwk2n9vqvod6.m.pipedream.net/?code=JsDqcvG4tOlh2DMqeUq9PMr0p7M9pwoUtmITJgEHs8CybkregXPlqcRI0ohJHUf1WxLgVFrahL2yPnS2e9U8bTMjf7NuA_1ceICd&state=Pmo6KlECJd5ErpZBVv-G3g
+
+
+code
+JsDqcvG4tOlh2DMqeUq9PMr0p7M9pwoUtmITJgEHs8CybkregXPlqcRI0ohJHUf1WxLgVFrahL2yPnS2e9U8bTMjf7NuA_1ceICd
+Copy Path
+•
+Copy Value
+state:
+Pmo6KlECJd5ErpZBVv-G3g
+
+
+https://www.etsy.com/oauth/connect?response_type=code&client_id=None&scope=transactions_w+transactions_r&state=LKeVPXGTx2aTKG701FDF2Q&code_challenge=kvaD5iTCya_oGooGjSiY15MJGUeXHjiyHkLRlgpcCC8&code_challenge_method=S256', 'LKeVPXGTx2aTKG701FDF2Q')
+
+gitpod /workspace/PythonAPI/etsy_oauth_project (main) $ python etsy_authhelper_auth_code.py
+('https://www.etsy.com/oauth/connect?response_type=code&client_id=None&scope=transactions_w+transactions_r&state=LKeVPXGTx2aTKG701FDF2Q&code_challenge=kvaD5iTCya_oGooGjSiY15MJGUeXHjiyHkLRlgpcCC8&code_challenge_method=S256', 'LKeVPXGTx2aTKG701FDF2Q')
+gitpod /workspace/PythonAPI/etsy_oauth_project (main) $ python etsy_authhelper_auth_code.py
+('https://www.etsy.com/oauth/connect?response_type=code&client_id=0ljrt44eg7klh1c5t4rmfrph&redirect_uri=https%3A%2F%2Feoolwk2n9vqvod6.m.pipedream.net&scope=transactions_w+transactions_r&state=Pmo6KlECJd5ErpZBVv-G3g&code_challenge=ncmnTdJy7ruewJqBBinK7sKEh0JEGfSSkAz-g6C8Z8o&code_challenge_method=S256', 'Pmo6KlECJd5ErpZBVv-G3g')
+
+https://eoek1zxudta6gmi.m.pipedream.net
+
+--
+14/12
+gitpod /workspace/PythonAPI/etsy_oauth_project (main) $ python etsy_authhelper_auth_code.py
+Authorization URL: https://www.etsy.com/oauth/connect?response_type=code&client_id=0ljrt44eg7klh1c5t4rmfrph&redirect_uri=https%3A%2F%2Feoek1zxudta6gmi.m.pipedream.net&scope=transactions_w+transactions_r&state=Pmo6KlECJd5ErpZBVv-G3g&code_challenge=vyAbiRa8RrPQavcz83ggPPuzRFkvyYjXR7oFKSwUSR0&code_challenge_method=S256
+State: Pmo6KlECJd5ErpZBVv-G3g
+
+1. python etsy_authhelper_auth_code.py
+
+2. https://eoek1zxudta6gmi.m.pipedream.net/?code=Zlulxqf0zqt9z9k9ADzsmY9LaGGJSjI-ATu6-C2eURo8jGKCI5UjyIvA2Qd83tFSmsRT4xSu4jTT-RoqmaZnaR_pHcdJ61tld4ZX&state=Pmo6KlECJd5ErpZBVv-G3g
+
+
+instructions:
+1. python etsy_authhelper_auth_code.py
+
+2. you got this : gitpod /workspace/PythonAPI/etsy_oauth_project (main) $ python etsy_authhelper_auth_code.py
+Authorization URL: https://www.etsy.com/oauth/connect?response_type=code&client_id=0ljrt44eg7klh1c5t4rmfrph&redirect_uri=https%3A%2F%2Feoek1zxudta6gmi.m.pipedream.net&scope=transactions_w+transactions_r&state=Pmo6KlECJd5ErpZBVv-G3g&code_challenge=dwHdJP8DxPQchHREhKu1dk_MJsiCm_946mFL-vogcJE&code_challenge_method=S256
+State: Pmo6KlECJd5ErpZBVv-G3g
+
+
+3.https://eoek1zxudta6gmi.m.pipedream.net/?code=7G_g3XaO3AmtqZ5fkUC591_xbYSIHtkjbQ-Mv0gbFOERXmfBc-hFa3KXS58rlHwim-xSv39rsSVHc4vW5o_ULBrg46Q2v5pQWnyO&state=Pmo6KlECJd5ErpZBVv-G3g
+
+4. update  etsy_auth_code_full = "7G_g3XaO3AmtqZ5fkUC591_xbYSIHtkjbQ-Mv0gbFOERXmfBc-hFa3KXS58rlHwim-xSv39rsSVHc4vW5o_ULBrg46Q2v5pQWnyO&state=Pmo6KlECJd5ErpZBVv-G3g"
+
+5. python etsy_initial_token.py
+Access Token: 593486034.OOGSHG-8F7QdFL4Miis3JVGgsN_44A_p_a83XLFcmLGG9IWs5uI03x9s6OnoIz186ROYXNsEYV115D29ZZSrr5eCsQ
+Token Type: Bearer
+Expires In: 3600
+Refresh Token: 593486034.d3MBLhPlVVERapCc6ubtOxtg4sCX-xQKZ9aYmW-sy9Pke98KEWsEZSxinnQKJZOEoN4cIg0vFv1REUAZE_tq0THUtZ
+ 
+6. python etsy_shop_id.py
+received:
+{"count":1,"results":[{"shop_id":34038896,"shop_name":"BingusMerch","user_id":593486034,"create_date":1642785441,"created_timestamp":1642785441,"title":null,"announcement":null,"currency_code":"USD","is_vacation":false,"vacation_message":"Hello and thanks for visiting! I\u2019m working on fulfilling my current orders right now, but will be back soon.","sale_message":null,"digital_sale_message":null,"update_date":1702029023,"updated_timestamp":1702029023,"listing_active_count":1,"digital_listing_count":0,"login_name":"fbj9bcthg4vh9rij","accepts_custom_requests":false,"vacation_autoreply":"Hello and thanks for your message! I\u2019m working on fulfilling my current orders right now, and will reopen shortly.","url":"https:\/\/www.etsy.com\/shop\/BingusMerch","image_url_760x100":null,"num_favorers":0,"languages":["en-US"],"icon_url_fullxfull":null,"is_using_structured_policies":false,"has_onboarded_structured_policies":false,"include_dispute_form_link":false,"is_direct_checkout_onboarded":true,"is_etsy_payments_onboarded":true,"is_opted_in_to_buyer_promise":false,"is_calculated_eligible":false,"is_shop_us_based":false,"transaction_sold_count":7,"shipping_from_country_iso":"HR","shop_location_country_iso":null,"policy_welcome":null,"policy_payment":null,"policy_shipping":null,"policy_refunds":null,"policy_additional":null,"policy_seller_info":null,"policy_update_date":0,"policy_has_private_receipt_info":false,"has_unstructured_policies":false,"policy_privacy":null,"review_average":null,"review_count":null}]}
+
+7. python getPaymentAccountLedgerEntryPayments.py
+
+
+15/12 9:23
+Access Token: 593486034.9oiAhX7VGDumboT5MubEUuLOyROrNJGuV7N__3zHaKi9B2O4JmUcOwupprBHCxkrEs5XFwVtSCDJ7R4c7kh5lbB3hW
+Token Type: Bearer
+Expires In: 3600
+Refresh Token: 593486034.8Fiz744_ikZtZAQFKN2Nt3qSq1Yfn0TmhW4sEC7fb4WYyeKlOZ9z4RZ2kmZ9IGDKs1C1FkCgYQzAavFCEjzqWEsloX
+
+
+2. bruno.nagyy@gmail.com
+   bruno.nagyy@etsy_development_account
+
+3. PS F:\Projects Django\Etsy Node JS> F:\sqlite-tools-win-x64-3440200\sqlite3.exe database.sqlite (database)
+  .table
+  .schema AccessTokens
+  SELECT * FROM AccessTokens ORDER BY createdAt DESC LIMIT 1;
+
+
+
+https://developers.etsy.com/documentation/reference
+
+
+4. svi racuni https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts
+
+5. detaljan prikaz racuna po id  https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts/{receipt_id}
+
+6. shop id: BingusMerch  https://www.etsy.com/shop/BingusMerch?ref=profile_header
+
+bingus merch
+
+client id: 0ljrt44eg7klh1c5t4rmfrph
+
+shop_id: 34038896
+
+/etsy/run-script/
+/etsy/import-to-database/
+
+
+---
+python turbo.py
+python generate_template.py
+start rendered_template.html
+python -m http.server
+
+python -m http.server 8080
+
+
+https://8000-onadj-pythonapi-qxnneldp0xt.ws-eu107.gitpod.io/rendered_template.html
+
+
+turbo.py: Refreshes access tokens and retrieves Etsy order details, saving the response in a JSON file.
+
+app.py: A Flask web application that fetches data from Etsy using turbo.py and generates an HTML template using Jinja2.
+
+generate_template.py: Loads the JSON response from turbo.py, renders a Jinja2 template, and saves the resulting HTML template in the "templates" folder.
+
+refreshtoken.py: Refreshes Etsy access tokens using a refresh token and saves the new tokens to a text file (tokens.txt).
+
+getShopReceipts.py: Fetches Etsy receipts for a specified shop using access token information and saves the response to a JSON file (receipts_response.json).
+
+turbo.py: Refreshes access tokens and retrieves Etsy order details, saving the response in a JSON file (receipts_response.json).
+
+app.py: A Flask web application that utilizes turbo.py to fetch data from Etsy. It then generates an HTML template using Jinja2, presenting the receipt information.
+
+generate_template.py: Loads the JSON response from turbo.py, renders a Jinja2 template, and saves the resulting HTML template in the "templates" folder.
+
+refreshtoken.py: Refreshes Etsy access tokens using a refresh token and saves the new tokens to a text file (tokens.txt).
+
+getShopReceipts.py: Fetches Etsy receipts for a specified shop using access token information and saves the response to a JSON file (receipts_response.json).
+
+The HTML template (template.html) is designed to display the fetched receipt data in a user-friendly format, allowing users to interact with and download individual receipts or all receipts in JSON or CSV format.

@@ -41,7 +41,7 @@
         <h2>Token Information</h2>
         <ul class="list-group mb-4">
             {% for key, value in token_info.items() %}
-                <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
+            <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
             {% endfor %}
         </ul>
 
@@ -55,30 +55,32 @@
             <h2>New Orders</h2>
             <!-- Add logic to display new orders here -->
             {% if new_orders %}
-                <ul class="list-group mb-4">
-                    {% for order in new_orders %}
-                        <li class="list-group-item">
-                            <strong>Order ID:</strong> {{ order.order_id }}<br>
-                            <strong>Item Name:</strong> {{ order.item_name }}<br>
-                            <strong>Quantity:</strong> {{ order.quantity }}<br>
-                            <strong>Price:</strong> ${{ (order.price / 100)|round(2) }}<br>
-                            <strong>Created Timestamp:</strong> {{ order.create_timestamp }}<br>
-                            <strong>Address:</strong> {{ order.address }}<br>
-                            <strong>Grandtotal:</strong> ${{ (order.grandtotal.amount / 100)|round(2) }} ({{ order.grandtotal.currency_code }})
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% if new_orders_available %}
-                    <h2>Download Options</h2>
-                    <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders JSON</a>
-                    
-                {% endif %}
+            <ul class="list-group mb-4">
+                {% for order in new_orders %}
+                <li class="list-group-item">
+                    <strong>Order ID:</strong> {{ order.order_id }}<br>
+                    <strong>Item Name:</strong> {{ order.item_name }}<br>
+                    <strong>Quantity:</strong> {{ order.quantity }}<br>
+                    <strong>Price:</strong> €{{ (order.price / 100)|round(2) }}<br>
+                    <strong>Created Timestamp:</strong> {{ order.create_timestamp }}<br>
+                    <strong>Address:</strong> {{ order.address }}<br>
+                    <strong>Grandtotal:</strong> €{{ (order.grandtotal.amount / 100)|round(2) }} ({{
+                    order.grandtotal.currency_code }})
+                </li>
+                {% endfor %}
+            </ul>
+            {% if new_orders_available %}
+            <h2>Download Options</h2>
+            <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders JSON</a>
+
+            {% endif %}
             {% else %}
-                <p>No new orders available.</p>
+            <p>No new orders available.</p>
             {% endif %}
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-oXYWDVjO8qkuW5uAd72Gz1lLuETyQQ8o8W5QcUAPaIAYWhjs2BTE6pjB/6VcNQE+"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-oXYWDVjO8qkuW5uAd72Gz1lLuETyQQ8o8W5QcUAPaIAYWhjs2BTE6pjB/6VcNQE+"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-iQFbO8b0ie1Anix3I8a9Z1FX7cUzHdxB8AuKpxR2dHcgGFXmTwA6bIUpw2gMyV3W"
