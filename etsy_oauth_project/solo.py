@@ -1,6 +1,14 @@
 import json
 import requests
 import time
+from decimal import Decimal, ROUND_HALF_UP
+
+# Load data from the JSON file
+with open('new_orders_response.json', 'r') as file:
+    order_data = json.load(file)
+
+# Solo API token
+token = '79eb04a7e610bcebb3fcfa0ffb3f78b0d'
 
 # Load tax rates for each country
 tax_rates = {
@@ -33,38 +41,77 @@ tax_rates = {
     "SK": 20,
 }
 
-# Load data from the JSON file
-with open('new_orders_response.json', 'r') as file:
-    order_data = json.load(file)
+# Country names mapping
+country_names = {
+    "AT": "Austrija",
+    "BE": "Belgija",
+    "BG": "Bugarska",
+    "CY": "Cipar",
+    "CZ": "Češka",
+    "DE": "Njemačka",
+    "DK": "Danska",
+    "EE": "Estonija",
+    "EL": "Grčka",
+    "ES": "Španjolska",
+    "FI": "Finska",
+    "FR": "Francuska",
+    "HR": "Hrvatska",
+    "HU": "Mađarska",
+    "IE": "Irska",
+    "IT": "Italija",
+    "LT": "Litva",
+    "LU": "Luksemburg",
+    "LV": "Latvija",
+    "MT": "Malta",
+    "N": "Nizozemska",
+    "PL": "Poljska",
+    "PT": "Portugal",
+    "RO": "Rumunjska",
+    "SE": "Švedska",
+    "SI": "Slovenija",
+    "SK": "Slovačka",
+}
 
 # Extract relevant information for each receipt
 for receipt in order_data['results']:
     # Extract relevant information for the current receipt
-    token = '79eb04a7e610bcebb3fcfa0ffb3f78b0d'
+    country_code = receipt.get('country_iso', 'N')
+
+    # Check if country_iso is in the tax_rates dictionary
+    if country_code in tax_rates:
+        prikazi_porez = 1
+        napomene = None
+    else:
+        prikazi_porez = 0
+        napomene = 'Oslobođeno PDV-a temeljem članka 45.'
+
+    grandtotal_data = receipt['grandtotal']
+    grandtotal = Decimal(grandtotal_data['amount']) / Decimal(grandtotal_data['divisor'])
+
+    # Check if country_iso is in the country_names dictionary
+    if country_code in country_names:
+        country_name = country_names[country_code]
+    else:
+        country_name = country_code  # Use the country code if not found in country_names
+
     tip_usluge = 1
-    prikazi_porez = 1
     tip_racuna = 4
     kupac_naziv = receipt['name']
-    kupac_adresa = receipt['formatted_address']
     usluga = 1
-    opis_usluge_1 = receipt['transactions'][0]['title']
-    jed_mjera_1 = 1  # You may need to adjust this based on your data
+    opis_usluge_1 = 'Usluga 3D Ispisa'
 
-    # Use the original format for the price and convert it to a string
-    cijena_1 = str(receipt['transactions'][0]['price']['amount'] / receipt['transactions'][0]['price']['divisor'])
+    # Calculate tax amount
+    porez_stopa_1 = tax_rates.get(country_code, 0)
+    tax_amount = grandtotal * Decimal(porez_stopa_1) / (Decimal(100) + Decimal(porez_stopa_1))
 
-    # Replace the dot with a comma (if needed)
-    cijena_1 = cijena_1.replace('.', ',')
+    # Calculate cijena_1 based on the grandtotal and tax_amount
+    cijena_1 = grandtotal - tax_amount
+
+    # Format cijena_1 as a string with comma as decimal separator
+    cijena_1_formatted = '{:.2f}'.format(cijena_1).replace('.', ',')
 
     kolicina_1 = receipt['transactions'][0]['quantity']
     popust_1 = 0
-
-    # Get the country code from the JSON data
-    country_code = receipt.get('country_iso', 'N')
-
-    # Get the tax rate based on the country code, default to 0 if not found
-    porez_stopa_1 = tax_rates.get(country_code, 0)
-
     nacin_placanja = 1
     datum_racuna = receipt['create_timestamp']
     rok_placanja = datum_racuna
@@ -80,11 +127,11 @@ for receipt in order_data['results']:
         'prikazi_porez': prikazi_porez,
         'tip_racuna': tip_racuna,
         'kupac_naziv': kupac_naziv,
-        'kupac_adresa': kupac_adresa,
+        'kupac_adresa': country_name,
         'usluga': usluga,
         'opis_usluge_1': opis_usluge_1,
-        'jed_mjera_1': jed_mjera_1,
-        'cijena_1': cijena_1,
+        'jed_mjera_1': 1,
+        'cijena_1': cijena_1_formatted,
         'kolicina_1': kolicina_1,
         'popust_1': popust_1,
         'porez_stopa_1': porez_stopa_1,
@@ -95,6 +142,7 @@ for receipt in order_data['results']:
         'jezik_racuna': jezik_racuna,
         'valuta_racuna': valuta_racuna,
         'status': status,
+        'napomene': napomene,
     }
 
     # Make the POST request
