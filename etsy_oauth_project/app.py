@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, redirect, url_for, request
 import os
 import requests
 import time
@@ -107,6 +107,14 @@ def timestamp_to_string(timestamp):
     dt_object = datetime.datetime.fromtimestamp(timestamp)
     return dt_object.strftime("%Y-%m-%d %H:%M:%S")
 
+def create_receipts():
+    try:
+        subprocess.run(["python", "solo.py"])
+        success_message = "All receipts for new orders successfully created."
+        return redirect(url_for('index', success_message=success_message))
+    except Exception as e:
+        return redirect(url_for('index', error_message=f"Error creating receipts: {e}"))
+
 @app.route('/')
 def index():
     try:
@@ -130,7 +138,7 @@ def index():
         "Refresh Token": token['refresh_token']
     }
 
-    return render_template('index.html', token_info=token_info, new_orders=new_orders, new_orders_available=bool(new_orders))
+    return render_template('index.html', token_info=token_info, new_orders=new_orders, new_orders_available=bool(new_orders), success_message=request.args.get('success_message'))
 
 @app.route('/download_existing_orders_json')
 def download_existing_orders_json():
@@ -146,6 +154,10 @@ def download_new_orders_json():
 def download_new_orders_csv():
     csv_path = "new_orders_response.csv"
     return send_file(csv_path, as_attachment=True)
+
+@app.route('/create_receipts')
+def create_receipts_route():  # Renamed function to avoid recursion
+    return create_receipts()
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create All Receipts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create All Receipts</h1>
+
+        <!-- Display success message if it exists -->
+        {% if success_message %}
+            <div class="alert alert-success" role="alert">
+                {{ success_message }}
+            </div>
+        {% endif %}
+
+        <form action="{{ url_for('process_create_all_receipts') }}" method="post">
+            <button type="submit" class="btn btn-primary">Create Receipts</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-oXYWDVjO8qkuW5uAd72Gz1lLuETyQQ8o8W5QcUAPaIAYWhjs2BTE6pjB/6VcNQE+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-iQFbO8b0ie1Anix3I8a9Z1FX7cUzHdxB8AuKpxR2dHcgGFXmTwA6bIUpw2gMyV3W"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy/mTcDSc5/LAVbq8LE/1AlmCK+JXel7UJZ"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -72,22 +72,45 @@
             {% if new_orders_available %}
             <h2>Download Options</h2>
             <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders JSON</a>
-
             {% endif %}
             {% else %}
             <p>No new orders available.</p>
             {% endif %}
         </div>
+
+        <!-- Button to create receipts -->
+        <div id="create-receipts">
+            <h2>Create Receipts For All New Orders</h2>
+            <form action="{{ url_for('create_receipts_route') }}" method="GET" id="create-receipts-form">
+                <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New Orders</button>
+                <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...</div>
+            </form>
+        </div>
+
+        <!-- Success message -->
+        {% if success_message %}
+        <div class="alert alert-success mt-4" role="alert">
+            {{ success_message }}
+        </div>
+        {% endif %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-oXYWDVjO8qkuW5uAd72Gz1lLuETyQQ8o8W5QcUAPaIAYWhjs2BTE6pjB/6VcNQE+"
-        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-iQFbO8b0ie1Anix3I8a9Z1FX7cUzHdxB8AuKpxR2dHcgGFXmTwA6bIUpw2gMyV3W"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy/mTcDSc5/LAVbq8LE/1AlmCK+JXel7UJZ"
         crossorigin="anonymous"></script>
+    <script>
+        // Show loading message when clicking "Create Receipts" button
+        $(document).ready(function () {
+            $('#create-receipts-form').submit(function () {
+                $('#create-receipts-btn').attr('disabled', 'disabled');
+                $('#loading-message').show();
+            });
+        });
+    </script>
 </body>
 
 </html>
