@@ -58,14 +58,23 @@
             <ul class="list-group mb-4">
                 {% for order in new_orders %}
                 <li class="list-group-item">
+                    <!-- Order details -->
+                    <!-- Add a form for each order to input tracking ID -->
+                    <form action="{{ url_for('fulfill_order_route', order_id=order.order_id) }}" method="POST" class="mb-2">
+                        <div class="form-group">
+                            <label for="tracking_id_{{ order.order_id }}">Enter Tracking ID:</label>
+                            <input type="text" class="form-control" id="tracking_id_{{ order.order_id }}" name="tracking_id" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Complete and Close Order</button>
+                    </form>
+                    <!-- Display order details -->
                     <strong>Order ID:</strong> {{ order.order_id }}<br>
                     <strong>Item Name:</strong> {{ order.item_name }}<br>
                     <strong>Quantity:</strong> {{ order.quantity }}<br>
                     <strong>Price:</strong> €{{ (order.price / 100)|round(2) }}<br>
                     <strong>Created Timestamp:</strong> {{ order.create_timestamp }}<br>
                     <strong>Address:</strong> {{ order.address }}<br>
-                    <strong>Grandtotal:</strong> €{{ (order.grandtotal.amount / 100)|round(2) }} ({{
-                    order.grandtotal.currency_code }})
+                    <strong>Grandtotal:</strong> €{{ (order.grandtotal.amount / 100)|round(2) }} ({{ order.grandtotal.currency_code }})
                 </li>
                 {% endfor %}
             </ul>
@@ -82,6 +91,7 @@
         <div id="create-receipts">
             <h2>Create Receipts For All New Orders</h2>
             <form action="{{ url_for('create_receipts_route') }}" method="GET" id="create-receipts-form">
+
                 <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New Orders</button>
                 <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...</div>
             </form>
@@ -105,9 +115,23 @@
     <script>
         // Show loading message when clicking "Create Receipts" button
         $(document).ready(function () {
-            $('#create-receipts-form').submit(function () {
+            $('#create-receipts-form').submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission behavior
                 $('#create-receipts-btn').attr('disabled', 'disabled');
                 $('#loading-message').show();
+
+                $.ajax({
+                    type: 'GET',
+                    url: $(this).attr('action'),
+                    success: function (data) {
+                        $('#loading-message').hide();
+                        console.log('Receipts successfully generated.');
+                    },
+                    error: function () {
+                        $('#loading-message').hide();
+                        alert('Error generating receipts. Please try again.');
+                    }
+                });
             });
         });
     </script>

@@ -155,9 +155,27 @@ def download_new_orders_csv():
     csv_path = "new_orders_response.csv"
     return send_file(csv_path, as_attachment=True)
 
-@app.route('/create_receipts')
-def create_receipts_route():  # Renamed function to avoid recursion
+@app.route('/create_receipts', methods=['GET'])  # Only allow GET requests for creating receipts
+def create_receipts_route():
     return create_receipts()
+
+@app.route('/fulfill_order/<order_id>', methods=['POST'])
+def fulfill_order_route(order_id):
+    tracking_code = request.form.get('tracking_id')
+    if tracking_code:
+        try:
+            with open("tokens.txt", "r") as file:
+                token_data = file.read()
+                token = json.loads(token_data)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return "Error loading tokens. Please run refresh_token.py."
+
+        shop_id = "34038896"
+
+        fulfill_order(etsy_keystring, token, shop_id, order_id, tracking_code, "Your Carrier Name")
+        return redirect(url_for('index', success_message="Order fulfilled successfully."))
+    else:
+        return redirect(url_for('index', error_message="Tracking ID not provided."))
 
 if __name__ == '__main__':
     app.run(debug=True)
