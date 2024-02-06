@@ -107,6 +107,38 @@ def timestamp_to_string(timestamp):
     dt_object = datetime.datetime.fromtimestamp(timestamp)
     return dt_object.strftime("%Y-%m-%d %H:%M:%S")
 
+def fulfill_order(api_key, token, shop_id, order_id, tracking_code, carrier_name):
+    if time.time() > token['expires_in']:
+        token_response = refresh_token(api_key, token['refresh_token'])
+        token['access_token'] = token_response['access_token']
+        token['token_type'] = token_response['token_type']
+        token['expires_in'] = time.time() + float(token_response['expires_in'])
+        token['refresh_token'] = token_response['refresh_token']
+
+        print("Access Token refreshed.")
+
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "x-api-key": api_key,
+        "Authorization": f"{token['token_type']} {token['access_token']}",
+    }
+
+    endpoint = f"https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts/{order_id}/fulfill"
+    data = {
+        "tracking_code": tracking_code,
+        "carrier_name": carrier_name
+    }
+
+    r = requests.post(endpoint, headers=headers, json=data)
+
+    if r.status_code == 200:
+        print(f"Order {order_id} fulfilled successfully.")
+        return True
+    else:
+        print(f"Failed to fulfill order {order_id}. Status Code: {r.status_code}")
+        return False
+
 def create_receipts():
     try:
         subprocess.run(["python", "solo.py"])

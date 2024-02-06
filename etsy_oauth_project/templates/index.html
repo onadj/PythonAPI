@@ -94,15 +94,9 @@
 
                 <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New Orders</button>
                 <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...</div>
+                <div id="success-message" class="alert alert-success mt-4" role="alert" style="display: none;">Receipts successfully generated.</div>
             </form>
         </div>
-
-        <!-- Success message -->
-        {% if success_message %}
-        <div class="alert alert-success mt-4" role="alert">
-            {{ success_message }}
-        </div>
-        {% endif %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -125,7 +119,7 @@
                     url: $(this).attr('action'),
                     success: function (data) {
                         $('#loading-message').hide();
-                        console.log('Receipts successfully generated.');
+                        $('#success-message').show(); // Show success message
                     },
                     error: function () {
                         $('#loading-message').hide();
