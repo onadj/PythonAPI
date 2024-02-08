@@ -60,7 +60,7 @@
                 <li class="list-group-item">
                     <!-- Order details -->
                     <!-- Add a form for each order to input tracking ID -->
-                    <form action="{{ url_for('fulfill_order_route', order_id=order.order_id) }}" method="POST" class="mb-2">
+                    <form action="{{ url_for('fulfill_order_route', receipt_id=order.receipt_id) }}" method="POST" class="mb-2">
                         <div class="form-group">
                             <label for="tracking_id_{{ order.order_id }}">Enter Tracking ID:</label>
                             <input type="text" class="form-control" id="tracking_id_{{ order.order_id }}" name="tracking_id" required>
@@ -68,13 +68,14 @@
                         <button type="submit" class="btn btn-success">Complete and Close Order</button>
                     </form>
                     <!-- Display order details -->
+                    <strong>Receipt ID:</strong> {{ order.receipt_id }}<br>
                     <strong>Order ID:</strong> {{ order.order_id }}<br>
                     <strong>Item Name:</strong> {{ order.item_name }}<br>
                     <strong>Quantity:</strong> {{ order.quantity }}<br>
                     <strong>Price:</strong> €{{ (order.price / 100)|round(2) }}<br>
                     <strong>Created Timestamp:</strong> {{ order.create_timestamp }}<br>
                     <strong>Address:</strong> {{ order.address }}<br>
-                    <strong>Grandtotal:</strong> €{{ (order.grandtotal.amount / 100)|round(2) }} ({{ order.grandtotal.currency_code }})
+                    <strong>Grandtotal:</strong> €{{ (order.grandtotal / 100)|round(2) }}
                 </li>
                 {% endfor %}
             </ul>

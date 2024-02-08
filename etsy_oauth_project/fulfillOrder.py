@@ -1,35 +1,17 @@
-import requests
+ # fulfillOrder.py
+ 
 import json
 import time
+import requests
 
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
+shop_id = "34038896"
+carrier_name = "hrvatska-posta"
 
 def load_token_from_file():
     with open("tokens.txt", "r") as file:
-        lines = file.readlines()
-
-    token = {}
-
-    for line in lines:
-        key, value = line.strip().split(": ")
-        # Map the loaded keys to the correct keys used in the script
-        key_mapping = {
-            'Access Token': 'access_token',
-            'Token Type': 'token_type',
-            'Expires In': 'expires_in',
-            'Refresh Token': 'refresh_token'
-        }
-        corrected_key = key_mapping.get(key, key)
-        if corrected_key == "expires_in":
-            value = float(value)  # Convert expires_in to float
-        token[corrected_key] = value
-
-    return token
-
-# Load token from file
-token = load_token_from_file()
-
-print("Loaded token:", token)
+        token_data = file.read()
+        return json.loads(token_data)
 
 def refresh_token(api_key, refresh_token):
     endpoint = "https://api.etsy.com/v3/public/oauth/token"
@@ -43,41 +25,44 @@ def refresh_token(api_key, refresh_token):
     response_data = r.json()
 
     if 'access_token' in response_data:
-        # Update the token information
-        token.update({
-            'access_token': response_data['access_token'],
-            'expires_in': time.time() + response_data['expires_in']
-        })
-        return response_data['access_token']
+        return response_data
     else:
-        raise Exception("Token refresh failed")
+        print("Failed to refresh access token.")
+        return None
 
-def fulfill_order(api_key, token, shop_id, receipt_id, tracking_code, carrier_name):
-    print("Token before checking expiration:", token)
-    if 'expires_in' not in token:
-        print("Warning: 'expires_in' not found in token.")
-        return
+def fulfill_order(receipt_id, tracking_code):
+    token = load_token_from_file()
 
-    if time.time() > float(token['expires_in']):
-        token['access_token'] = refresh_token(api_key, token['refresh_token'])
+    # Check if the access token is expired
+    if time.time() > token['expires_in']:
+        # Refresh the access token
+        token_response = refresh_token(etsy_keystring, token['refresh_token'])
+
+        # Update the token with the new values
+        token['access_token'] = token_response['access_token']
+        token['token_type'] = token_response['token_type']
+        token['expires_in'] = time.time() + float(token_response['expires_in'])
+        token['refresh_token'] = token_response['refresh_token']
+
+        # Save the updated token to file
+        with open("tokens.txt", "w") as file:
+            json.dump(token, file)
+
+        print("Access Token refreshed.")
 
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "x-api-key": api_key,
+        "x-api-key": etsy_keystring,
         "Authorization": f"{token['token_type']} {token['access_token']}",
     }
 
-    # Form a valid URL for createReceiptShipment
     endpoint = f"https://api.etsy.com/v3/application/shops/{shop_id}/receipts/{receipt_id}/tracking"
-
-    # Build the request body
     data = {
         "tracking_code": tracking_code,
         "carrier_name": carrier_name
     }
 
-    # Execute a createReceiptShipment POST request
     r = requests.post(endpoint, headers=headers, data=data)
 
     print("Status Code:", r.status_code)
@@ -89,14 +74,14 @@ def fulfill_order(api_key, token, shop_id, receipt_id, tracking_code, carrier_na
         with open("fulfillment_response.json", "w", encoding="utf-8") as json_file:
             json.dump(response_dict, json_file, indent=4, ensure_ascii=False)
             print("Response saved to 'fulfillment_response.json'")
+        return response_dict, r.status_code
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
         print("Raw response:", response_content)
+        return {"error": "Error decoding JSON response"}, 500
 
-# Replace the following values with actual data
-shop_id = "34038896"
-receipt_id = "3168059268"
-tracking_code = "45645865444333"
-carrier_name = "hrvatska-posta"
-
-fulfill_order(etsy_keystring, token, shop_id, receipt_id, tracking_code, carrier_name)
+# Example usage
+if __name__ == "__main__":
+    receipt_id = "3177513447"  # Replace with your actual receipt ID
+    tracking_code = "665555666"  # Replace with your actual tracking code
+    fulfill_order(receipt_id, tracking_code)
