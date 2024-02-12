@@ -8,36 +8,70 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #000;
+            color: #fff;
         }
 
         .container {
-            background-color: #ffffff;
+            background-color: #222;
+            color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             padding: 20px;
+            text-align: center;
+            /* Center content horizontally */
         }
 
         .mt-4 {
-            color: #007bff;
+            color: orange;
+            /* Change to orange */
         }
 
         .list-group-item {
-            background-color: #f8f9fa;
+            background-color: #222;
+            color: #fff;
         }
 
         .btn-primary,
         .btn-info,
         .btn-success {
             margin-top: 10px;
+            background-color: orange;
+            /* Change to orange */
+            border-color: orange;
+            /* Change to orange */
+        }
+
+        /* Additional Custom CSS */
+        .cat-image {
+            width: 400px;
+            height: auto;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
+
+
 </head>
 
 <body>
     <div class="container mt-5">
-        <h1 class="mt-4">Your Etsy Orders</h1>
+        <h1 class="mt-4">O'Nagy Ninja Cat Kamikaze Orders Assistant</h1>
 
+
+        <div class="container mt-5">
+            <img class="cat-image" src="{{ url_for('static', filename='cat.jpg') }}" alt="Cat Image">
+            <br>
+            <p class="description">
+                O'Nagy Ninja Cat Kamikaze Orders Assistant is your purr-fect solution for effortlessly managing Etsy
+                orders with precision. This App combines the stealthy agility of a ninja cat with the explosive
+                efficiency of a kamikaze mission to fetch new orders, complete them with manually entered tracking IDs
+                using Etsy APIs, and automatically generate receipts using the Solo service APIs which means tt's your
+                one-stop App for generating receipts tailored to the tax laws of every corner of the globe.
+            </p>
+        </div>
         <h2>Token Information</h2>
         <ul class="list-group mb-4">
             {% for key, value in token_info.items() %}
@@ -60,10 +94,12 @@
                 <li class="list-group-item">
                     <!-- Order details -->
                     <!-- Add a form for each order to input tracking ID -->
-                    <form action="{{ url_for('fulfill_order_route', receipt_id=order.receipt_id) }}" method="POST" class="mb-2">
+                    <form action="{{ url_for('fulfill_order_route', receipt_id=order.receipt_id) }}" method="POST"
+                        class="mb-2">
                         <div class="form-group">
                             <label for="tracking_id_{{ order.order_id }}">Enter Tracking ID:</label>
-                            <input type="text" class="form-control" id="tracking_id_{{ order.order_id }}" name="tracking_id" required>
+                            <input type="text" class="form-control" id="tracking_id_{{ order.order_id }}"
+                                name="tracking_id" required>
                         </div>
                         <button type="submit" class="btn btn-success">Complete and Close Order</button>
                     </form>
@@ -93,9 +129,12 @@
             <h2>Create Receipts For All New Orders</h2>
             <form action="{{ url_for('create_receipts_route') }}" method="GET" id="create-receipts-form">
 
-                <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New Orders</button>
-                <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...</div>
-                <div id="success-message" class="alert alert-success mt-4" role="alert" style="display: none;">Receipts successfully generated.</div>
+                <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New
+                    Orders</button>
+                <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...
+                </div>
+                <div id="success-message" class="alert alert-success mt-4" role="alert" style="display: none;">Receipts
+                    successfully generated.</div>
             </form>
         </div>
     </div>
