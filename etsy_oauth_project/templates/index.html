@@ -51,15 +51,53 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Adjusted styles for user-friendly layout */
+        .order-section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .download-options {
+            margin-top: 20px;
+        }
+
+        .order-section-left {
+            display: flex; /* Display items horizontally */
+            flex-direction: column; /* Align items vertically */
+            align-items: flex-start; /* Align items to the left */
+            width: 40%; /* Adjust the width as needed */
+            margin-right: 20px;
+        }
+
+        .order-section-left .list-group-item {
+            background-color: transparent; /* Remove background color */
+            border: none; /* Remove border */
+            padding: 0; /* Remove default padding */
+            margin-bottom: 10px; /* Add some spacing between items */
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Color for headings */
+        .heading-color {
+            color: orange;
+        }
+         
+        .hr-color {
+            border-color: orange; /* Same color as headings */
+        } 
+
     </style>
-
-
 </head>
 
 <body>
     <div class="container mt-5">
         <h1 class="mt-4">O'Nagy Ninja Cat Kamikaze Orders Assistant</h1>
-
 
         <div class="container mt-5">
             <img class="cat-image" src="{{ url_for('static', filename='cat.jpg') }}" alt="Cat Image">
@@ -68,26 +106,37 @@
                 O'Nagy Ninja Cat Kamikaze Orders Assistant is your purr-fect solution for effortlessly managing Etsy
                 orders with precision. This App combines the stealthy agility of a ninja cat with the explosive
                 efficiency of a kamikaze mission to fetch new orders, complete them with manually entered tracking IDs
-                using Etsy APIs, and automatically generate receipts using the Solo service APIs which means tt's your
+                using Etsy APIs, and automatically generate receipts using the Solo service APIs which means it's your
                 one-stop App for generating receipts tailored to the tax laws of every corner of the globe.
             </p>
         </div>
-        <h2>Token Information</h2>
-        <ul class="list-group mb-4">
-            {% for key, value in token_info.items() %}
-            <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
-            {% endfor %}
-        </ul>
-
-        <div id="existing-orders">
-            <h2>Existing Orders</h2>
-            <!-- Add logic to display existing orders here -->
-            <a href="{{ url_for('download_existing_orders_json') }}" class="btn btn-info">Download All Orders JSON</a>
+ <hr class="hr-color">
+        <div class="order-section">
+            <h2 class="heading-color">Token Information</h2>
+            <ul class="list-group mb-4">
+                {% for key, value in token_info.items() %}
+                <li class="list-group-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                {% endfor %}
+            </ul>
         </div>
-
-        <div id="new-orders">
-            <h2>New Orders</h2>
-            <!-- Add logic to display new orders here -->
+        <hr class="hr-color">
+        <div class="order-section" style="text-align: center;">
+            <h2 class="heading-color">Existing Orders</h2>
+            <ul class="list-group mb-4">
+                {% for order in existing_orders %}
+                <li class="list-group-item">
+                    <strong>Title:</strong> {{ order.transactions[0].title }}<br>
+                    <strong>Formatted Address:</strong> {{ order.formatted_address }}<br>
+                    <strong>Grand Total:</strong> {{ order.grandtotal.amount / 100 }} {{ order.grandtotal.currency_code }}<br>
+                </li>
+                {% endfor %}
+            </ul>
+           
+            <a href="{{ url_for('download_existing_orders_json') }}" class="btn btn-info">Download Existing Orders JSON</a>
+        </div>
+        <hr class="hr-color">
+        <div class="order-section">
+            <h2 class="heading-color">New Orders</h2>
             {% if new_orders %}
             <ul class="list-group mb-4">
                 {% for order in new_orders %}
@@ -105,7 +154,7 @@
                     </form>
                     <!-- Display order details -->
                     <strong>Receipt ID:</strong> {{ order.receipt_id }}<br>
-                    <strong>Order ID:</strong> {{ order.order_id }}<br>
+                    
                     <strong>Item Name:</strong> {{ order.item_name }}<br>
                     <strong>Quantity:</strong> {{ order.quantity }}<br>
                     <strong>Price:</strong> €{{ (order.price / 100)|round(2) }}<br>
@@ -116,25 +165,27 @@
                 {% endfor %}
             </ul>
             {% if new_orders_available %}
-            <h2>Download Options</h2>
-            <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders JSON</a>
+            <div class="download-options">
+                <h2>Download Options</h2>
+                <a href="{{ url_for('download_new_orders_json') }}" class="btn btn-success">Download New Orders
+                    JSON</a>
+            </div>
             {% endif %}
             {% else %}
             <p>No new orders available.</p>
             {% endif %}
         </div>
-
-        <!-- Button to create receipts -->
-        <div id="create-receipts">
-            <h2>Create Receipts For All New Orders</h2>
+        <hr class="hr-color">
+        <div class="order-section">
+            <!-- Button to create receipts -->
+            <h2 class="heading-color">Create Receipts For All New Orders</h2>
             <form action="{{ url_for('create_receipts_route') }}" method="GET" id="create-receipts-form">
-
                 <button type="submit" class="btn btn-primary" id="create-receipts-btn">Create Receipts For All New
                     Orders</button>
                 <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...
                 </div>
-                <div id="success-message" class="alert alert-success mt-4" role="alert" style="display: none;">Receipts
-                    successfully generated.</div>
+                <div id="success-message" class="alert alert-success mt-4" role="alert"
+                    style="display: none;">Receipts successfully generated.</div>
             </form>
         </div>
     </div>

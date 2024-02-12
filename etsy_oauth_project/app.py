@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, send_file, redirect, url_for, request
 import os
 import requests
@@ -32,7 +31,51 @@ def refresh_token(api_key, refresh_token):
         print("Failed to refresh access token.")
         return None
 
-def get_receipts(api_key, token, shop_id):
+def get_existing_orders(api_key, token, shop_id):
+    if time.time() > token['expires_in']:
+        token_response = refresh_token(api_key, token['refresh_token'])
+        token['access_token'] = token_response['access_token']
+        token['token_type'] = token_response['token_type']
+        token['expires_in'] = time.time() + float(token_response['expires_in'])
+        token['refresh_token'] = token_response['refresh_token']
+
+        print("Access Token refreshed.")
+
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "x-api-key": api_key,
+        "Authorization": f"{token['token_type']} {token['access_token']}",
+    }
+
+    params = {"receipt_ids": ",".join(map(str, range(1, 2)))}
+    endpoint = f"https://openapi.etsy.com/v3/application/shops/{shop_id}/receipts"
+    r = requests.get(endpoint, headers=headers, params=params)
+
+    print("Existing Orders - Status Code:", r.status_code)
+    response_content = r.text 
+    print("Existing Orders - Response Content:", response_content)
+
+    try:
+        response_dict = json.loads(response_content)
+
+        with open("existing_orders_response.json", "w", encoding="utf-8") as json_file:
+            json.dump(response_dict, json_file, indent=4, ensure_ascii=False)
+            print("Existing Orders - Response saved to 'existing_orders_response.json'")
+        
+        existing_orders = []
+        if response_dict.get('count', 0) > 0:
+            print("Existing orders found.")
+            existing_orders = response_dict.get("results", [])
+
+        return existing_orders
+
+    except json.JSONDecodeError as e:
+        print(f"Existing Orders - Error decoding JSON: {e}")
+        print("Existing Orders - Raw response:", response_content)
+        return []
+
+def get_new_orders(api_key, token, shop_id):
     if time.time() > token['expires_in']:
         token_response = refresh_token(api_key, token['refresh_token'])
         token['access_token'] = token_response['access_token']
@@ -64,10 +107,10 @@ def get_receipts(api_key, token, shop_id):
             json.dump(response_dict, json_file, indent=4, ensure_ascii=False)
             print("New Orders - Response saved to 'new_orders_response.json'")
         
+        new_orders = []
         if response_dict.get('count', 0) > 0:
             print("There are new orders!")
 
-            new_orders = []
             for order in response_dict.get("results", []):
                 transaction = order.get("transactions", [])[0] if order.get("transactions", []) else {}
                 address = order.get("formatted_address", "")
@@ -95,11 +138,8 @@ def get_receipts(api_key, token, shop_id):
                                          order_data["address"], order_data["grandtotal"]])
 
             print("New Orders - CSV file saved successfully!")
-            return new_orders
 
-        else:
-            print("There are no new orders.")
-            return []
+        return new_orders
 
     except json.JSONDecodeError as e:
         print(f"New Orders - Error decoding JSON: {e}")
@@ -127,10 +167,9 @@ def index():
     except (FileNotFoundError, json.JSONDecodeError):
         return "Error loading tokens. Please run refresh_token.py."
 
-    shop_id = "34038896"
-
     try:
-        new_orders = get_receipts(etsy_keystring, token, shop_id)
+        existing_orders = get_existing_orders(etsy_keystring, token, shop_id)
+        new_orders = get_new_orders(etsy_keystring, token, shop_id)
     except Exception as e:
         return f"Error fetching orders: {e}"
 
@@ -144,7 +183,8 @@ def index():
     success_message = request.args.get('success_message')
     error_message = request.args.get('error_message')
 
-    return render_template('index.html', token_info=token_info, new_orders=new_orders, new_orders_available=bool(new_orders), success_message=success_message, error_message=error_message)
+    return render_template('index.html', token_info=token_info, new_orders=new_orders, new_orders_available=bool(new_orders), existing_orders=existing_orders, success_message=success_message, error_message=error_message)
+
 
 @app.route('/download_existing_orders_json')
 def download_existing_orders_json():
@@ -182,5 +222,3 @@ def fulfill_order_route(receipt_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
