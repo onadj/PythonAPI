@@ -1,4 +1,5 @@
-from flask import Flask, render_template, send_file, redirect, url_for, request
+from flask import Flask, render_template, send_file, redirect, url_for, request, session
+
 import os
 import requests
 import time
@@ -9,10 +10,15 @@ import datetime
 from fulfillOrder import fulfill_order
 
 app = Flask(__name__)
+app.secret_key = '123456789'  
 
 etsy_keystring = "0ljrt44eg7klh1c5t4rmfrph"
 shop_id = "34038896"
 carrier_name = "hrvatska-posta"
+
+
+USERNAME = 'onadj'
+PASSWORD = '1234'
 
 def refresh_token(api_key, refresh_token):
     endpoint = "https://api.etsy.com/v3/public/oauth/token"
@@ -116,7 +122,7 @@ def get_new_orders(api_key, token, shop_id):
                 address = order.get("formatted_address", "")
 
                 order_data = {
-                    "receipt_id": order.get("receipt_id", ""),  # Use receipt_id instead of order_id
+                    "receipt_id": order.get("receipt_id", ""),  
                     "item_name": transaction.get("title", ""),
                     "quantity": transaction.get("quantity", ""),
                     "price": transaction.get("price", {}).get("amount", ""),
@@ -157,6 +163,25 @@ def create_receipts():
         return redirect(url_for('index', success_message=success_message))
     except Exception as e:
         return redirect(url_for('index', error_message=f"Error creating receipts: {e}"))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if username == USERNAME and password == PASSWORD:
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            return render_template('login.html', error_message="Invalid username or password.")
+    else:
+        return render_template('login.html')
+
+# Route for handling logout
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 @app.route('/')
 def index():

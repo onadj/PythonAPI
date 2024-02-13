@@ -80,7 +80,7 @@
                     "buyer_user_id": 899455418,
                     "create_timestamp": 1707749304,
                     "created_timestamp": 1707749304,
-                    "paid_timestamp": null,
+                    "paid_timestamp": 1707749309,
                     "shipped_timestamp": null,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
@@ -323,7 +323,7 @@
                     "create_timestamp": 1707741502,
                     "created_timestamp": 1707741502,
                     "paid_timestamp": 1707741508,
-                    "shipped_timestamp": null,
+                    "shipped_timestamp": 1707749102,
                     "quantity": 1,
                     "listing_image_id": 5621755613,
                     "receipt_id": 3211677770,
@@ -350,7 +350,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": null,
+                    "expected_ship_date": 1707749102,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }

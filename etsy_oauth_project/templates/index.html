@@ -98,7 +98,10 @@
 <body>
     <div class="container mt-5">
         <h1 class="mt-4">O'Nagy Ninja Cat Kamikaze Orders Assistant</h1>
-
+        {% if 'logged_in' in session and session['logged_in'] %}
+        <a href="{{ url_for('logout') }}" class="btn btn-info">Logout</a>
+        {% endif %}
+        {% if 'logged_in' in session and session['logged_in'] %}
         <div class="container mt-5">
             <img class="cat-image" src="{{ url_for('static', filename='cat.jpg') }}" alt="Cat Image">
             <br>
@@ -110,7 +113,7 @@
                 one-stop App for generating receipts tailored to the tax laws of every corner of the globe.
             </p>
         </div>
- <hr class="hr-color">
+        <hr class="hr-color">
         <div class="order-section">
             <h2 class="heading-color">Token Information</h2>
             <ul class="list-group mb-4">
@@ -188,6 +191,21 @@
                     style="display: none;">Receipts successfully generated.</div>
             </form>
         </div>
+        {% else %}
+        <div class="container mt-5">
+            <form action="{{ url_for('login') }}" method="POST" class="mt-5">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+        {% endif %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
