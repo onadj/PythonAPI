@@ -1,5 +1,5 @@
  # Etsy Order Management Solution
- # Etsy Order Management Solution is a powerful platform meticulously crafted to streamline and optimize all facets of your Etsy business operations. Developed using HTML, JavaScript, Python, and Flask, with a keen focus on efficiency, precision, and user-friendly functionality, this solution empowers Etsy sellers to effortlessly manage their orders with unparalleled ease.
+ # Etsy Order Management Solution is a comprehensive platform designed to simplify and improve Etsy business operations. Developed using HTML, JavaScript, Python, API endpoints, and Flask, this solution focuses on efficiency, precision, and user-friendly functionality. It enables Etsy sellers to easily manage their orders with ease.
 
 Key Features:
 1. Enhanced Security with Etsy Open API v3
