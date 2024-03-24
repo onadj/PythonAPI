@@ -1,6 +1,128 @@
 {
-    "count": 19,
+    "count": 20,
     "results": [
+        {
+            "receipt_id": 3219570780,
+            "receipt_type": 0,
+            "seller_user_id": 593486034,
+            "seller_email": "bruno.nagyy@gmail.com",
+            "buyer_user_id": 902105635,
+            "buyer_email": null,
+            "name": "Zelja",
+            "first_line": "spreca zuta kapija",
+            "second_line": "",
+            "city": "Lyon",
+            "state": null,
+            "zip": "31000",
+            "status": "Completed",
+            "formatted_address": "Zelja\nspreca zuta kapija\n31000 LYON\nFrance",
+            "country_iso": "FR",
+            "payment_method": "cc",
+            "payment_email": null,
+            "message_from_payment": null,
+            "message_from_seller": null,
+            "message_from_buyer": null,
+            "is_shipped": true,
+            "is_paid": true,
+            "create_timestamp": 1708453603,
+            "created_timestamp": 1708453603,
+            "update_timestamp": 1708453654,
+            "updated_timestamp": 1708453654,
+            "is_gift": false,
+            "gift_message": "",
+            "gift_sender": "",
+            "grandtotal": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "subtotal": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_price": {
+                "amount": 50,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_shipping_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_tax_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "total_vat_cost": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "discount_amt": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "gift_wrap_price": {
+                "amount": 0,
+                "divisor": 100,
+                "currency_code": "USD"
+            },
+            "shipments": [
+                {
+                    "receipt_shipping_id": 1243006114312,
+                    "shipment_notification_timestamp": 1708453653,
+                    "carrier_name": "Hrvatska Posta",
+                    "tracking_code": "8484943543"
+                }
+            ],
+            "transactions": [
+                {
+                    "transaction_id": 3982836828,
+                    "title": "Razanj za janje ugradnja u golfa 2 pon-pet zvati na sms ne odgovaram",
+                    "description": "Listing for API testing purposes",
+                    "seller_user_id": 593486034,
+                    "buyer_user_id": 902105635,
+                    "create_timestamp": 1708453603,
+                    "created_timestamp": 1708453603,
+                    "paid_timestamp": 1708453618,
+                    "shipped_timestamp": 1708453654,
+                    "quantity": 1,
+                    "listing_image_id": 5621755613,
+                    "receipt_id": 3219570780,
+                    "is_digital": false,
+                    "file_data": "",
+                    "listing_id": 1628560583,
+                    "sku": "",
+                    "product_id": 19089550991,
+                    "transaction_type": "listing",
+                    "price": {
+                        "amount": 50,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "shipping_cost": {
+                        "amount": 0,
+                        "divisor": 100,
+                        "currency_code": "USD"
+                    },
+                    "variations": [],
+                    "product_data": [],
+                    "shipping_profile_id": 167053242486,
+                    "min_processing_days": 5,
+                    "max_processing_days": 50,
+                    "shipping_method": null,
+                    "shipping_upgrade": null,
+                    "expected_ship_date": 1708453653,
+                    "buyer_coupon": 0,
+                    "shop_coupon": 0
+                }
+            ],
+            "refunds": []
+        },
         {
             "receipt_id": 3211755392,
             "receipt_type": 0,
@@ -30,6 +152,7 @@
             "updated_timestamp": 1707749309,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 55,
                 "divisor": 100,
@@ -144,6 +267,7 @@
             "updated_timestamp": 1707742047,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -265,6 +389,7 @@
             "updated_timestamp": 1707749102,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 53,
                 "divisor": 100,
@@ -350,7 +475,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1707749102,
+                    "expected_ship_date": 1707749101,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -386,6 +511,7 @@
             "updated_timestamp": 1707401366,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -507,6 +633,7 @@
             "updated_timestamp": 1707395492,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -628,6 +755,7 @@
             "updated_timestamp": 1707394791,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -749,6 +877,7 @@
             "updated_timestamp": 1707311090,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 130,
                 "divisor": 100,
@@ -834,7 +963,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1707311090,
+                    "expected_ship_date": 1707311089,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -870,6 +999,7 @@
             "updated_timestamp": 1707320381,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -991,6 +1121,7 @@
             "updated_timestamp": 1707394519,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1112,6 +1243,7 @@
             "updated_timestamp": 1707394139,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 100,
                 "divisor": 100,
@@ -1233,6 +1365,7 @@
             "updated_timestamp": 1704159070,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1354,6 +1487,7 @@
             "updated_timestamp": 1704140371,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1475,6 +1609,7 @@
             "updated_timestamp": 1704140971,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1596,6 +1731,7 @@
             "updated_timestamp": 1704155636,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1681,7 +1817,7 @@
                     "max_processing_days": 50,
                     "shipping_method": null,
                     "shipping_upgrade": null,
-                    "expected_ship_date": 1704155636,
+                    "expected_ship_date": 1704155635,
                     "buyer_coupon": 0,
                     "shop_coupon": 0
                 }
@@ -1717,6 +1853,7 @@
             "updated_timestamp": 1704158202,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1844,6 +1981,7 @@
             "updated_timestamp": 1704155964,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -1965,6 +2103,7 @@
             "updated_timestamp": 1704158367,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -2086,6 +2225,7 @@
             "updated_timestamp": 1704156473,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 50,
                 "divisor": 100,
@@ -2207,6 +2347,7 @@
             "updated_timestamp": 1683596439,
             "is_gift": true,
             "gift_message": "HAPPY FOURTH OF JULY!!!",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 1574,
                 "divisor": 100,

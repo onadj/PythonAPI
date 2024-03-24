@@ -63,18 +63,26 @@
         }
 
         .order-section-left {
-            display: flex; /* Display items horizontally */
-            flex-direction: column; /* Align items vertically */
-            align-items: flex-start; /* Align items to the left */
-            width: 40%; /* Adjust the width as needed */
+            display: flex;
+            /* Display items horizontally */
+            flex-direction: column;
+            /* Align items vertically */
+            align-items: flex-start;
+            /* Align items to the left */
+            width: 40%;
+            /* Adjust the width as needed */
             margin-right: 20px;
         }
 
         .order-section-left .list-group-item {
-            background-color: transparent; /* Remove background color */
-            border: none; /* Remove border */
-            padding: 0; /* Remove default padding */
-            margin-bottom: 10px; /* Add some spacing between items */
+            background-color: transparent;
+            /* Remove background color */
+            border: none;
+            /* Remove border */
+            padding: 0;
+            /* Remove default padding */
+            margin-bottom: 10px;
+            /* Add some spacing between items */
         }
 
         .total {
@@ -87,17 +95,17 @@
         .heading-color {
             color: orange;
         }
-         
-        .hr-color {
-            border-color: orange; /* Same color as headings */
-        } 
 
+        .hr-color {
+            border-color: orange;
+            /* Same color as headings */
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h1 class="mt-4">O'Nagy Ninja Cat Kamikaze Orders Assistant</h1>
+        <h1 class="mt-4">Etsy Order Management Solution</h1>
         {% if 'logged_in' in session and session['logged_in'] %}
         <a href="{{ url_for('logout') }}" class="btn btn-info">Logout</a>
         {% endif %}
@@ -106,11 +114,22 @@
             <img class="cat-image" src="{{ url_for('static', filename='cat.jpg') }}" alt="Cat Image">
             <br>
             <p class="description">
-                O'Nagy Ninja Cat Kamikaze Orders Assistant is your purr-fect solution for effortlessly managing Etsy
-                orders with precision. This App combines the stealthy agility of a ninja cat with the explosive
-                efficiency of a kamikaze mission to fetch new orders, complete them with manually entered tracking IDs
-                using Etsy APIs, and automatically generate receipts using the Solo service APIs which means it's your
-                one-stop App for generating receipts tailored to the tax laws of every corner of the globe.
+                Etsy Order Management Solution is a comprehensive platform designed to streamline and optimize every
+                aspect of your Etsy business operations. With a focus on efficiency, accuracy, and user-friendly
+                functionality, this solution empowers Etsy sellers to manage orders with precision and ease. <br><br>
+
+                Key Features:
+                <br><br>
+                Enhanced Security with Etsy Open API v3: Prior to every action within the app, Etsy Order Management Solution ensures the use of a freshly refreshed token obtained from Etsy Open API v3. This ensures heightened security and compliance with Etsy's authentication standards, providing peace of mind for sellers.
+                <br><br>
+                Order Handling: retrieve and process orders from the Etsy platform, reducing manual tasks and minimizing
+                the risk of errors.
+                <br><br>
+                Automated Order Processing: Utilizing advanced automation technology, Etsy Order Management Solution
+                automates order completion, including the integration of tracking IDs using Etsy's APIs. This ensures
+                swift and accurate order fulfillment, enhancing customer satisfaction.
+                <br><br>
+                Generate professional and customized receipts effortlessly with integrated Solo service APIs. Tailored to comply with regional tax laws, these receipts provide clarity and transparency for both sellers and buyers. This key feature will generate receipts with only one click for all new orders, saving valuable time for sellers.<br><br>
             </p>
         </div>
         <hr class="hr-color">
@@ -130,12 +149,14 @@
                 <li class="list-group-item">
                     <strong>Title:</strong> {{ order.transactions[0].title }}<br>
                     <strong>Formatted Address:</strong> {{ order.formatted_address }}<br>
-                    <strong>Grand Total:</strong> {{ order.grandtotal.amount / 100 }} {{ order.grandtotal.currency_code }}<br>
+                    <strong>Grand Total:</strong> {{ order.grandtotal.amount / 100 }} {{ order.grandtotal.currency_code
+                    }}<br>
                 </li>
                 {% endfor %}
             </ul>
-           
-            <a href="{{ url_for('download_existing_orders_json') }}" class="btn btn-info">Download Existing Orders JSON</a>
+
+            <a href="{{ url_for('download_existing_orders_json') }}" class="btn btn-info">Download Existing Orders
+                JSON</a>
         </div>
         <hr class="hr-color">
         <div class="order-section">
@@ -157,7 +178,7 @@
                     </form>
                     <!-- Display order details -->
                     <strong>Receipt ID:</strong> {{ order.receipt_id }}<br>
-                    
+
                     <strong>Item Name:</strong> {{ order.item_name }}<br>
                     <strong>Quantity:</strong> {{ order.quantity }}<br>
                     <strong>Price:</strong> €{{ (order.price / 100)|round(2) }}<br>
@@ -187,8 +208,8 @@
                     Orders</button>
                 <div id="loading-message" style="display: none;">Please wait, creating receipts for all new orders...
                 </div>
-                <div id="success-message" class="alert alert-success mt-4" role="alert"
-                    style="display: none;">Receipts successfully generated.</div>
+                <div id="success-message" class="alert alert-success mt-4" role="alert" style="display: none;">Receipts
+                    successfully generated.</div>
             </form>
         </div>
         {% else %}

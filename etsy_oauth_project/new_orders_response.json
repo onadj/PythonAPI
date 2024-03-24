@@ -30,6 +30,7 @@
             "updated_timestamp": 1707749309,
             "is_gift": false,
             "gift_message": "",
+            "gift_sender": "",
             "grandtotal": {
                 "amount": 55,
                 "divisor": 100,
