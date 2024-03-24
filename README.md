@@ -11,3 +11,7 @@ Seamlessly retrieve and process orders from the Etsy platform, reducing manual t
 Leveraging advanced automation technology, Etsy Order Management Solution automates order completion tasks. This includes seamless integration of tracking IDs using Etsy's APIs, guaranteeing swift and precise order fulfillment to enhance overall customer satisfaction.
 5. Customized Receipt Generation
 Effortlessly generate professional and customized receipts with integrated Solo service APIs. Tailored to adhere to regional tax laws, these receipts provide clarity and transparency for both sellers and buyers. With just one click, our platform generates receipts for all new orders, effectively saving valuable time for sellers.
+
+ # Resources:
+https://www.etsy.com/developers/documentation/getting_started/oauth
+https://solo.com.hr/api-dokumentacija
